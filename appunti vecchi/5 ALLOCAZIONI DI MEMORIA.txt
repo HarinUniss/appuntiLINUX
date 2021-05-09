@@ -1,0 +1,91 @@
+ALLOCAZIONI DI MEMORIA
+
+MEMORY ALLOCATION 
+
+Richiesta di lasciare dello spazzioin memoriadiuna dimensione specifica 
+(il risultato varia in base alarchitettura ma non asramai inferiore all adimensione richiesta)
+
+   malloc(4) //cihede alcalcolatore di garantire  4 Byte di spazio in memoria
+
+   malloc(sizeof(char))//cihede alcalcolatore di garantire uno spazio in
+                               memoria della dimensione di un char (dimensione
+                 	 	 varia in base all'architettura)
+
+   malloc(sizeof(short)) //cihede alcalcolatore di garantire uno spazio 			           in memoria della dimensione di un short 
+			   (dimensione varia in base all'architettura)
+
+   malloc(sizeof(int))	//cihede alcalcolatore di garantire uno spazio in
+   			  	  memoria della dimensione di un int (dimensione
+ 			  	  varia in base all'architettura)
+
+   malloc(sizeof(long))	//cihede alcalcolatore di garantire uno spazio in
+  			  memoria della dimensione di un long (dimensione
+ 				  varia in base all'architettura)
+
+   malloc(sizeof(float)) //cihede alcalcolatore di garantire uno spazio in
+ 			   memoria della dimensione di un float (dimensione
+ 			   varia in base all'architettura)
+
+   malloc(sizeof(double)) //cihede alcalcolatore di garantire uno spazio in
+ 			    memoria della dimensione di un double (dimensione
+ 			    varia in base all'architettura)
+-----------------------------------------------------------------------------
+RICHIEDERE PIU SPAZIO
+
+	malloc( X * sizeof(int))      //moltiplico lo spazio richiesto di X 
+				       (si puo fare per tutti i tipi di dati)
+
+N.B.
+    ad ogni estremo dello spazzio allocato in memoria, uno spazio di memoria     
+	aggiuntivo contenente il numero di BYTE nello stack che si possono usare    
+	per ingrandire lo spazzio in memoria in direzione dell'estremo    
+	destro/sopra, sinistro/sotto. 
+
+-----------------------------------------------------------------------------
+
+RICHIEDERE L'ALLOCCAMENTO IN MEMORIA E CREARE UN PUNTATORE CHE PUNTA AL PRIMO 
+						ELEMENTO DELLA MEMORIA ALLOCATA
+
+   int * pointeurVersEntier = malloc(sizeof(int));
+
+   double * pointeurVersDouble = malloc(sizeof(double));
+
+   //scrivo negli spazi di memoria allocati tramite i puntatori
+
+   * pointeurVersEntier =3;  //scrivo 3 nello spazzio di memoria allocato 
+			       per un elemento int.
+
+   * pointeurVersDouble =7;  //scrivo 7 nello spazzio di memoria alloccato 
+  			       per un elemento double.
+
+-----------------------------------------------------------------------------
+DISALOCAZIONE MEMORIA
+
+   int * A = malloc(sizeof(int));    //creo un allocazione di memoria e un                                        puntatore che punta all'indirizzo del 				       primo elemento.
+
+   free(A);   //leggo il contenuto di A, vado a tale indirizzo ed DISALLOCCO 		
+		la memoria che era stata allocata. 
+
+----------------------------------------------------------------------------
+INDIRIZZAMENTO ELEMENTI ALLOCATI E AFFECTAZIONE COME SE FOSSERO IN UN ARRAY
+
+
+int * tab = malloc( 5 * sizeof(int) );	//creo un allocazione di memoria, 					          
+					della dimensionedi 5 elementi int, 
+			   	          e il suo puntatore "* tab".
+    
+	* tab = 0;	//metto il primo elemento a 0 ( notazione puntatori )
+    	tab[1] = 1;  //metto il secondo elemento a 1 ( notazione alternativa)
+   	tab[2] = 2;
+    	* ( tab + 3 ) = 3; //metto il quarto elemento ( notazione puntatori ) 
+    	* ( tab + 4 ) = 4;
+
+
+------------------------------------------------------------------------------
+MODIFICARE LA DIMENSIONE DI UNO SPAZZIO DI MEMORIA 
+	void *realloc(void *, size_t);
+
+		primo argomento puntatore all’inizio dell’area di memoria che 
+		si vuole dimensionare
+	 	secondo argomento indica la nuova dimensione da assegnare 
+		al blocco di memoria

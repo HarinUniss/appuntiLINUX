@@ -1,0 +1,285 @@
+printf()	Fa stampare sullo schermo la stringa di caratteri 
+			compresa tra le virgolette. 
+
+
+scanf()		Legge un valore dallo Standerd Input
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+SCANF_S()
+
+scanf_s("%19s", array , 20)
+
+richiede due argomenti per ogni %s nella stringa di formattazione :
+	-un array di caratteri in cui porre la stringa di input 
+	-il numero degli elementi dell'array
+
+Se il numero in caratteri in input piu il carattere di terminazione nullo è 
+piu grande del numero degli elementi dell'array specificato , 
+la conversione %s fallisce.
+
+-----------------------------------------------------------------------------
+PRINTF()
+SPECIFICAZIONI DI CONVERSIONE contraddistinte dal carattere percentuale “%”
+
+          STRINGA DI CONTROLLO		    COSA VIENE STAMPATO
+		%d	- -- -- - ->Stampa come un intero decimale con segno.
+		%i	----------->Stampa come un intero decimale con segno.
+    [Nota: gli specificatori i e d sono diversi quando sono usati con scanf.]
+		
+		%f	-------------->Valore in virgola mobile
+		%c	- -- -- -- - ->Un carattere
+		%s	-------------->Una stringa di caratteri
+		%o	- -- -- -- -- >Stampa intero ottale senza segno
+		%x, %X	-------------->Stampa intero esadecimale senza segno. 
+			    X stampa le cifre 0-9 e le lettere maiuscole A-F, 
+			    x stampa le cifre 0-9 e le lettere minuscole a-f.
+
+		%u	- -- -- -- ->Stampa intero decimale senza segno.
+		%f	------------>Numero reale notazione in virgola fissa.
+		%e, %E	- -- -- -- ->Virgola mobile notazione esponenziale.
+		%g, %G  ------------>Virgola fissa o esponenziale 
+					in base alla grandezza del valore.
+		%L      ------------>Valore in virgola mobile long double.
+
+		%%	------------>Stampa il carattere %
+
+		%p 	------------>(puntatore) Indirizzo di inizio del 
+					              elemento richiesto
+
+h,l,ll (lettera “elle”) Vanno posti prima di uno specifìcatore di conversione 
+			di interi per indicare che viene stampato, 
+	                rispettivamente, un intero short, 
+			un intero long o un intero long long. 
+	                Questi sono chiamati modificatori di lunghezza.
+
+SEQUENZE DI ESCAPE:
+	\n	Ritorno a capo
+	\t	Tabulazione orizzontale
+	\b	Tabulazione verticale
+	\a      (messaggio di avviso o squillo)
+	\f	Sposta cursore all’inizio della successiva pagina logica
+	\b 	Sposta cursore indietro di una posizione.
+	\v 	Sposta cursore alla posizione del tab verticale
+
+
+	\\	(Backslash)
+	\"	(Doppie virgolette)
+	\'      (virgoletta singola)
+	\?      (punto interrogativo)
+-----------------------------------------------------------------------------
+SPECIFICARE LARGHEZZE DI CAMPO
+
+Dimensione esatta di un campo in cui sono stampati i dati è specificata 
+da una larghezza di campo. 
+
+Se la larghezza di campo è maggiore rispetto ai dati che vengono stampati, 
+questi vengono normalmente allineati a DESTRA all’interno del campo. 
+
+Un intero che rappresenta la larghezza di campo è inserito 
+tra il segno di percentuale (%) e lo specificatore di conversione (es. %4d).
+(in questo caso specifico 4 indica la dimensione di 4 caratteri)
+
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+PRECISIONE PER INTERI , NUMERI IN VIRGOLA MOBILE  
+
+printf permette di specificare la precisione con cui i dati sono stampati. 
+
+Per specificare la precisione, mettete un punto decimale (. ) 
+	seguito da un intero che rappresenta la precisione tra 
+	il segno di percentuale e lo specificatore di conversione.
+ 
+Per i numeri interi, 
+	la precisione indica il numero minimo di cifre da stampare,
+	Se il valore stampato contiene meno cifre della precisione specificata 
+	e il valore di precisione ha uno zero iniziale o un punto decimale.
+
+Per  numeri in virgola mobile %e, %E ed %f , 
+     la precisione è il numero di cifre che compaiono dopo il punto decimale.
+
+Con gli specificatori di conversione g e G, 
+	la precisione è il numero massimo di cifre significative da stampare.
+
+Con lo specificatore di conversione s, 
+	la precisione è il numero massimo di caratteri 
+	appartenenti alla stringa da scrivere.
+
+ES:
+5int main(void)
+6 {
+7    
+8 	int i = 873; 				// inizializza int i
+9 	printf("\t%.4d\n\t%.9d\n\n", i, i);
+10
+11 	
+12 	double f = 123.94536;   		// inizializza double f
+13 	printf("\t%.3f\n\t%.3e\n\t%.3g\n\n", f, f, f);
+14	
+15 	char s[] = "Happy Birthday";   	    // inizializza l ’array di char s
+16	printf("\t%.lls\n", s);
+
+USCITA: interi		float		string
+	0873		123.945		Happy Birth
+	000000873	1.239e+002
+			124
+----------------------------------------------------------------------------
+COMBINARE LARGHEZE DI CAMPO E PRECISIONI
+
+	printf("%9.3f", 123.456789);	//9 = larghezza  ; .3 = precisione
+
+
+È possibile specificare la larghezza di campo e la precisione usando 
+	espressioni intere nella lista degli argomenti che segue dopo 
+	la stringa di controllo del formato.
+ 	Per usare questa modalità, inserite un asterisco (*) al posto 
+	della larghezza di campo o della precisione (o di entrambe). 
+
+	printf("%*.*f", 7, 2, 98.736);	// 7= larghezza  ;  2 = precisione
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+USO DI FLAG NELLA STRINGA DI CONTROLLO DEL FORMATO PRINTF
+
+Per utilizzare un flag in una stringa di controllo del formato, 
+	inseritelo immediatamente alla destra del segno di percentuale. 
+
+È possibile combinare assieme diversi flag 
+	in un solo specificatore di conversione.
+
+
+-(meno)	------>Allinea a sinistra l’output dentro il campo specificato.
+
++(piu)	------>Stampa come prefisso il segno più per i valori positivi e 
+		il segno meno per i valori negativi.
+
+(spazio)------>Stampa uno spazio prima di un valore positivo 
+		non stampato con il flag +. 
+
+#	------>Premetti 0 al valore in output quando è usato con 
+		lo specificatore di conversione ottale o.
+
+		Premetti 0x o 0X al valore in output quando è usato con 
+		lo specificatore di conversione esadecimale x o X.
+
+	Forza la scrittura di un punto decimale per un numero in virgola 
+        mobile stampato con e, E, f , g o G che SENZA parte frazionale.
+       (Normalmente il punto decimale è stampato solo se lo segue una cifra.)
+        Con gli specificatori g e G gli zeri finali non vengono eliminati
+
+0(ZERO)  ------>Riempi un campo con zeri iniziali.
+
+
+Allineam ento a destra
+	printf("%10s%10d%10c%10f\n\n", "hello", 7, 'a', 1.23);
+Allineamento a sinistra
+	printf("%-10s%-10d%-10c%-10f\n", "hello", 7, ’a ’, 1.23);
+	       |	  |          |          |          |			
+DESTRA:	       |     hello|         7|         a|  1.230000|	
+SINISTRA:      |hello     |7         |a         |1.230000  |
+	       |	  |          |          |          |
+
+-----------------------------------------------------------------------------
+
+SPECIFICATORI DI CONVERSIONE DI SCANF()
+
+	& 	Si usa per fornire a scanf() il riferimento alla locazione di 		memoria della variabile,
+!!!!!!! N.B.  se ci si riferisce a un ARRAY DI CARATTERI & VA OMESSO 
+	
+INTERI
+	%d 	Leggi un intero decimale con o senza segno. L’argomento
+		corrispondente è un puntatore a un in t.
+
+
+	%i 	Leggi un intero decimale, ottale o esadecimale con o senza
+		segno. L’argomento corrispondente è un puntatore a un in t.
+
+	%o 	Leggi un intero ottale. L’argomento corrispondente è un
+		puntatore a un in t senza segno.
+
+	%u 	Leggi un intero decimale senza segno. L’argomento
+		corrispondente è un puntatore a un in t senza segno.
+
+      %(x,X)	Leggi un intero esadecimale. L’argomento corrispondente è un
+		puntatore a un in t senza segno.
+
+     %(h,l,ll)	Vanno posti prima di uno qualsiasi degli specificatori
+		di conversione di interi per indicare che si deve leggere,
+		rispettivamente, un intero short, long o long long.
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+NUMERI IN VIRGOLA MOBILE
+
+%(e,E,f,g,G)    Leggi un valore in virgola mobile. L’argomento corrispondente
+                è un puntatore a una variabile in virgola mobile.
+
+%(l,L) 		Vanno posti prima di uno qualunque degli specificatori di
+		conversione di numeri in virgola mobile per indicare che si
+		deve leggere un valore double o long double. L’argomento
+		corrispondente è un puntatore a una variabile double o long 
+		double.
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+CARATTERI E STRINGHE
+	%c 	Leggi un carattere. L’argomento corrispondente è un puntatore                 a char; non viene aggiunto alcun carattere nullo ('\0').
+
+	%s 	Leggi una stringa. L’argomento corrispondente è un puntatore 		a un array di tipo char, grande abbastanza da contenere la 		stringa e un carattere nullo di terminazione ('\0') che viene 		aggiunto automaticamente.
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+INSIEME DI SCANSIONE 
+[caratteri per la scansione] 	Esegui la scansione di una stringa per un 
+				insieme di caratteri memorizzati in un array.
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+ALTRI
+
+	%p 	Leggi un indirizzo nello stesso formato prodotto da 
+		un’istruzione printf con lo specificatore di formato %p.
+
+	n 	Memorizza il numero di caratteri letti fino a quel punto 		nella chiamata corrente a scanf. 
+		L’argomento corrispondente è un puntatore a un int.
+
+	% 	Ignora un segno di percentuale (%) nell’input.
+
+---------------------------------------------------------------------------------
+
+INSIEMI DI SCANSIONE CON SCANF()
+
+Insieme di caratteri racchiusi fra parentesi quadre,[ ], e preceduti 
+	   da un segno di percentuale nella stringa di controllo del formato.
+ 
+Esamina i caratteri nello stream di input, cercando solamente i caratteri              corrispondenti ai caratteri contenuti nell’insieme di scansione. 
+
+Ogni volta che viene trovato un carattere, viene memorizzato nell’argomento                         corrispondente: un puntatore a un array di caratteri.
+
+La lettura di caratteri TERMINA quando si incontra un
+			       carattere non contenuto nell’insieme di scansione.
+
+ES:
+char z[9]; 
+scanf("%8[aeiou]", z);	//legge solo i caratteri dell'insieme e li salva in z
+			//si blocca appena ne trova altri 
+
+INSIEME DI SCANSIONE INVERTITO 
+
+mettete un accento circonflesso (A) dentro le parentesi quadre prima dei 
+				     caratteri per i quali eseguire la scansione.
+
+scanf("%8[^aeiou]", z);	//non legge i caratteri dell'insieme
+			//si blocca appena ne trova uno
+---------------------------------------------------------------------------------
+
+TRALASCIARE CARATTERI CON SCANF()
+
+Per eliminare i caratteri superflui, includeteli nella stringa di controllo 
+del formato di scanf (i caratteri di spaziatura come spazi, newline e tab 
+			ignorano tutti i caratteri di spaziatura iniziali). 
+ 
+ES:
+
+scanf("%d-%d-%d"j &month, &day, &year);	//ignora i trattini (-) 
+
+entrata: 11-10-1999 //leggerà solo gli (int %d)
+
+SCARTARE UN QUALUNQUE CARATTERE IN UNA POSIZIONE SPECIFICA
+scanf prevede il carattere * di soppressione dell’assegnazione. 
+Questo carattere permette a scanf di leggere qualunque tipo di dato dall’input e di scartarlo senza assegnarlo a una variabile. 

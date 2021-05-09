@@ -1,0 +1,27 @@
+ALLOCAZIONE MEMORIA DINAMICA 
+
+#include <stlib.h>
+ 
+sizeof( variabile ); 		//fornisce la taglia della variabile
+
+------------------------------------------------------------------------------
+MALLOC() 
+	void* malloc(size_t numero di byte necessari);
+
+	RITORNA un puntatore con l'indirizzo della variabile che e stata alloccata
+		il problema è che malloc non sa che tipo di variabile sta usando, dunque non lo specifica
+
+	int * px;
+	px = malloc(sizeof(int));
+
+-------------------------------------------------------------------------------
+FREE 
+	void free(void* puntatore);
+
+	//libera la memoria allocata a partire dal puntatore 
+
+-------------------------------------------------------------------------------
+
+COSTRUZIONE DI UNA LISTA CONCATENATA
+
+

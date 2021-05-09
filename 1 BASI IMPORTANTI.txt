@@ -1,0 +1,402 @@
+########################################################################################################
+SIMBOLI IMPORTANTI 
+########################################################################################################
+CARATTERI JOLLY
+
+*.*	identifica tutti i file avente nel nome il carattere tra gli asterischi
+*.txt	tutti i file .txt
+nome*	tutti i file con nome è qualcosaltro dopo
+*	tutti i file nella directory
+
+?	Identifica un singolo carattere generico (qualsiasi carattere che ci potrebbe essere al posto di ?)
+
+[]	identificano un insieme di singoli caratteri (uno dei caratteri presente nell'insieme [])
+[1-6]	tutti i numeri da 1 a 6 (1 e 6 compresi)
+
+~ 	identifica la directory home dove ci sono tutte le cartelle dei vari acount
+
+.	indica la directory corrente	
+	
+..	indica la directory soprastante 
+
+>	scrive qualcosa dentro a un file
+
+(.)PUNTO all?inizio di un nome rende il file o la directory NASCOSTA
+
+
+
+########################################################################################################
+SPOSTARSI E RITROVARSI ALL'INTERNO DEL FILE SYSTEM
+########################################################################################################
+
+pwd	identifica la cartella sulla quale si sta lavorando
+
+which	conoscere la posizione di un programma o una cartella o qualcosa	
+
+echo "qualcosa"	stampa sullo schermo qualcosa
+
+-- 	anteporre seguiti da uno spazio  ai file che iniziano con - . * ? $  [ ] ecc..
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+
+whoami	segnala con quale utente nho fatto l'accesso
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+RICERCA DI UN COMANDO 
+
+	SE SI CONOSCONO DELLE INIZIALI
+		dugitare le iniziali seguite da due volte Tab 
+		verranno elencati tutti i comandi aventi quelle iniziali 
+		
+		se c'e' solo un risultato il compilatore si permettera di sostituirlo con quello che abbiamo scritto
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+
+history 	fornisce la lista dei comandi gia digitati
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+LS (lista)  p.15
+**********************************************************************************************************
+ls -larthi	come piace a me
+
+	
+ls	elenca i file e le sotto-directory presenti in una directory
+
+ls -x	elenca i file interni della dorectory "x"
+
+ls x/y	elenca i file e le sotto-directori della directory "y"
+
+ls ~/x/*.txt	elenca tutti i file .txt dentro alla dyrectory x
+
+ls -R	 mostran il contenuto della directory e quello di tutte le Sottodirectory
+
+ls -1	visualizza il risultato come colonna singola
+
+ls -m	visualizza gli elementi con separazione della virgola
+
+ls -a	visualizza anche i file e cartelle NASCOSTE
+
+ls -r	inverte l'ordine di visualizzazione
+
+ls -X	raggruppa tutti i file avente la stessa estensione  (guardare tabella sotto)
+
+ls -t	ordina il contenuto della directory secondo la DATA e l'ORA
+
+ls -S	ordinare secondo la DIMENSIONE del file
+
+ls -h	esprime la DIMENSIONE con i prefissi Kbyte Mbyte Gbyte
+
+ls cartella	elenca tutti gli elementi di una cartella
+
+ls -i 	permette di visualizzare il numero di nodo al quale fa riferimento il file
+
+ls -F	visualizza che tipo di directory è il file elencato con un simbolo  (guardare tabella sotto)
+
+ls --color	visualizza che tipo di directory è il file elencato con un colore differente
+---------------------------------------------------------------------------------------------------
+ls -F				|	ls --color                                              
+*	eseguibile		|	Colore di defaut 	file normale
+/	directory		|	Verde			eseguibile
+@	Link simbolico		|	Blu			directory
+|	FIFO			|	Magenta			socket, immagini, audio
+=	Socket			|	Rosso			archivio (.tar, .zip, .deb, .rpm)
+---------------------------------------------------------------------------------------------------
+
+ls -l	fornisce una grande quantità di dati (desta verso sinistra)
+
+	d rwx rwx rwx 1 harin harin    4096 Oct 10 10:58  OneDrive
+       |_|___|___|___|_|_____|_____|  |____|___|__|_____||________|
+        |  |   |   |  |   |     |        |   |   |   |       |
+        |  |   |   |  |   |     |        |   |   |   |       V
+	|  |   |   |  |   |     |        |   |   |   V       Nome dell'oggetto
+	|  |   |   |  |   |     |        |   |   V   Orario in 24 ore 
+	|  |   |   |  |   |     |        |   V   Giorno
+	|  |   |   |  |   |     |        V   Mese
+	|  |   |   |  |   |     V        Grandezza espressa in Byte
+	|  |   |   |  |   V     Proprietario file
+	|  |   |   |  V   Gruppo di appartenenza
+	|  |   |   V  Numero di PUNTATORI che esistono per quel nodo 
+	|  |   V   Autorizzazioni a CHIUNQUE ALTRO
+	|  V   Autorizzazioni al GRUPPO
+	V  Autorizzazioni al PROPRIETARIO del file (guardare tabella sotto)
+	Tipo di elemento (guardare tabella sotto)
+---------------------------------------------------------------------------------------------------
+TIPO DI ELEMENTO 			|	AUTORIZZAZIONI
+-	file normale, eseguibile	|	r	permesso di lettura
+d	directory			|	w	permesso di scrittura
+l	link simbolico			|	x	permesso di esecuzione
+s	socket				|	-	nega l'azione sostituita
+b	block device			|
+c	character device		|
+p	named pipe			|
+----------------------------------------------------------------------------------------------------
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+cd (Change Directory)	p34
+**********************************************************************************************************
+
+cd	torna alla directory home contenente tutti gli user 
+cd ~	vado alla cartella home contenente tutti gli user 
+
+cd -	porta l'utente nella dyrectory  "PRECEDENTE"
+
+cd /	vado alla radice 
+
+NB. se non ricordo il nome della dyrectori mosso scrivere le iniziali seguite dal tasto Tab
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+DU (spazio occupato dalle cartelle)
+**********************************************************************************************************
+
+du nomeCartella	la funzione fornisce il peso di ogni sotto cartella e Alla fine il peso totale
+
+du -lah 	come piace a me 
+
+posso usare gli stessi parametri di ls -lah
+
+-s	 per avere soloo la somma totale 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+########################################################################################################
+LEGGERE FILES
+########################################################################################################
+
+*****************************************************************************************************
+CAT 
+*****************************************************************************************************
+
+cat nomeFile		permette di visualizzare tutto il contenuto di un file nella console
+
+cat -n nomeFile 	permette di numerare le linee 
+
+
+
+*****************************************************************************************************
+LESS 
+*****************************************************************************************************
+
+less nomeFile		permette di visualizzare per pagine il contenuto di un file nella console
+
+	scorciatoie una volta usato il comando 
+		BarraSpazio 	fa visualizzare il continuo del file (Page down)
+		
+		Enter 		permette di avanzare di una linea(si possono usare anche le frecce)
+
+		d		avanzi di 11 linee
+
+		b 		torna indietro di una pagina (Page up)
+
+		y 		torna indietro di una linea
+	
+		u 		torna indietro di mezza pagina
+
+		=		indica in che file mi trovo e a che punto
+		
+		h 		posso visualizzare tutti i comandi di LESS
+
+		/Testo		utilizzato per cercare del testo nel file
+				usare "n" o "N" per andare avanti o indietro  nei risultati trovati
+		
+		q 		CHIUDERE IL FILE E TORNARE ALLA CONSOLE 
+
+
+*****************************************************************************************************
+HEAD 
+*****************************************************************************************************
+head nomeFile		permette di visualizzare l'inizio di un file 
+
+head -n numeroLinee nomeFile		visualizza un numero specifico di linee del file partendo dalla testa
+
+*****************************************************************************************************
+TAIL
+*****************************************************************************************************
+tail nomeFile				permette di visualizzare la fine di un file 
+
+tail -n numeroLinee nomeFile		visualizza un numero specifico di linee del file partendo dalla testa
+
+tail -f nomeFile			permette di visualizzare in tempo reale le modifiche alla fine del file
+
+tail -f -s numeroSecondi nomeFile	verifica se ci sono state modifiche ogni numeroSecondi
+
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+########################################################################################################
+MANIPOLARE I FILE 
+########################################################################################################
+
+*****************************************************************************************************
+TOUCH		p36
+*****************************************************************************************************
+touch nomeFile.txt	crea un file se non è già stato creato
+
+touch	aggiorna sia l'accesso che l'ora delle modifiche di un file alla data attuale
+
+touch -t CCYYMMDDhhmm.ss nome.txt	imposta qualunque data o orario che si desideri a nome.txt
+          | | | | | | | 	      
+	  | | | | | | ss Secondi 00-59
+	  | | | | | mm Minuti 00-59
+	  | | | | hh Ora 00-23
+	  | | | DD Giorno 01-31
+	  | | MM Mese 01-12
+	  | YY Anno a due cifre 00-68 sottointeso come 2000, 69-99 sottointeso come 1900
+         CC Primi due caratteri di un anno a 4 cifre
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+MKDIR	(MaKe DIRectory)	p40
+**********************************************************************************************************
+mkdir nome	crea la directory "nome"
+
+mkdir -p nome/nomino	crea la directory "nome" con dentro la sotto-directory "nomino"	
+
+mkdir -v nome	crea la directory comunicando all'utente cosa sta facendo il pc
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+CP	(Copia file o directory)		p42
+**********************************************************************************************************
+
+cp [file-da-copiare] [file di destinazione o directory]		se sposto un file es .txt su un altro file .txt il primo sovrascrive il secondo ()
+
+cp * 	possibilità di usare i caratteri jolly                  
+	se copio piu file in una sola directori si puo MA! 
+	non si possono scegliere piu directori di destinazione contemporaneamente
+
+cp so* 	sto copiando tutti i file che iniziano con "so"
+
+cp *.pdf	sto copiando tutti i file .pdf 
+
+
+cp -i	se ci sono dei file uguali nella directory di 
+	destinazione chiede conferma per ogni file y=yes n=no 
+	se si preme n il comando viene interrotto per tutti i file
+
+cp -R	permette di copiare una directory assieme al suo contenuto
+
+cp -v 	visualizza in tempo reale le azzioni svolte 
+
+cp -a 	esegue un bakup di una o piu cartelle in un unica cartella
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+MV	(muovi)		p51
+**********************************************************************************************************
+
+mv	funziona come cp solo che dopo aver copiato i file da un altra parte, 
+	li rimuove dalla directory di partenza
+
+cp so* 	sto spostando tutti i file che iniziano con "so"
+
+cp *.pdf	sto spostando tutti i file .pdf 
+
+mv -i	chiedere conferma per la sovrascrittura
+
+mv -v 	visualizza tutti i passaggi svolti
+
+mv nomeFile/ nuovoNomeFile/	è anche in grado di RINOMINARE I FILE 
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+RM	(remove)	p55
+**********************************************************************************************************
+
+rm		rimuove dei files NON directory
+
+rm *		funziona con i caratteri jolly
+
+rm -v		visualizza tutti i passaggi svolti
+
+rm -i		chiede conferma prima di cancellare ciascun file
+
+rm -f 		forza la rimozione a qualunque costo 
+
+rm -r 		elimina una directory e il suo contenuto
+
+rmdir		rimuove directory vuoti
+
+rm -rf * 	rimuove in modo BRUTALE tutti i file directory con le sue sottodirectory
+	 	nella directory dove mi trovo
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+LN ( creare dei collegamenti ad altri file)
+**********************************************************************************************************
+
+DUE TIPI DI COLLEGAMENTI 
+	-FISICI 
+	   File con nome diverso ma che punta allo stesso spazio in memoria
+		
+		ln file1 file2
+
+			ls -i 	permette di visualizzare il numero di nodo al quale fa riferimento il file
+			ls -l 	prima del nome utente posso vedere il numero di puntatori che puntano agli stessi dati
+		
+		se cancello uno di questi file il nodo ai dati puntati non viene cancellato 
+		finchè c'è ancora un file che punta a quel nodo
+
+	-SIMBOLICI
+	  File con nome diverso che punta al file che a sua volta punterà allo spazio in memoria 
+		
+		ln file1 file2
+
+			ls -l 	questa volta il comando mostrerà esplicitamente che file2 punta a file 1
+		
+	
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+SU 	(switch user)	p62
+**********************************************************************************************************
+
+su 	si diventa root
+
+su -	si diventa root e si ereditano le sue variabili di ambiente	
+
+su -l	diventi un altro utente con le sue variabili di ambiente (viene richiesta pasword)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

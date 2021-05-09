@@ -1,0 +1,12 @@
+VISUALIZZARE IL MANUALE DI UN COMANDO 
+
+	man nomeComando
+
+RICERCARE UN COMANDO 
+
+	apropos parolaChiaveRicerca
+	
+INFORMAZIONI VELOCI COMANDO
+	whatis	comando
+
+

@@ -1,0 +1,39 @@
+CONFIGURAZIONE CONSOLE PERSONALE .bashrc
+	se ne trova uno in ogni cartella utente
+
+	
+PERSONALIZZAZIONE INVITO DI COMANDO
+	
+	
+	_________________________________________________________________________________________________________________________
+	|# set a fancy prompt (non-color, unless we know we "want" color)							|
+	|case "$TERM" in													|
+	|xterm-color)														|
+    	|#	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '	|
+    	|	;;														|
+	|*)															|
+    	|#	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '								|
+    	|	;;														|
+	|esac															|
+ 	|															|
+	|# Comment in the above and uncomment this below for a color prompt							|
+------>>|PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '		|C
+	|-----------------------------------------------------------------------------------------------------------------------|	
+
+
+
+ALIAS 
+	permettono di preimpostare alcuni comandi in modo da non dover ogni bolta aggiungere delle lettere accanto
+	
+	alias 		permette di vedere tutti gli alias impostati nela bash
+
+
+	alias ll='ls -lArthi'		vuol dire che il comando "ll" farà riferimento a "ls -lArthi"
+
+
+	alias rm='rm --preserve-root'	ALIAS CHE PERMETTE DI EVITARE DI CANCELLARE TUTTO QUELLO SOTTO ALLA RADICE!!!!!!!!!!!!!!!
+ 															
+---------------------------------------------------------------------------------------------------------------------------------
+CONFIGURAZIONE CONSOLE GLOBALE
+
+	/etc/bash.bashrc		posizione file

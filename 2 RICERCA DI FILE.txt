@@ -1,0 +1,54 @@
+CERCARE UN FILE CONOSCENDO NOME ED ESTENSIONE
+
+	locate nomeFile
+
+	funziona solo con i file NON  appena creati e che sono registrati  in una base dati 
+	una volta al giorno il sistema operativo aggiorna la propria base dati 
+
+AGGIORNARE LA LISTA DI BASE DATI 
+	sudo updatedb
+
+
+RICERCA PIU APROFONDITA SU TUTTO IL DISCO RIGIDO 
+
+		find <directoriPartenza> <nomeFile> <cosaFare>
+
+	FACCIO PARTIRE LA RICERCA DALLA DIRECTORY IN CUI MI TROVO 
+
+		find -name "nome.txt"
+
+	RICERCA IN UN ALTRA DIRECTORY
+
+		find /var/log/ -name "nome.txt"
+
+	RICERCA APARTIRE DALLA DIMENSIONE
+
+		find  -size +10M		(posso usare + - e M k G )
+
+	
+
+	RICERCA A PARTIRE DALLA DATA ULTIMO ACCESSO 
+
+		find -atime numeroGiorniPasatiDalUltimoAccesso
+
+
+	RICERCA DI SOLI FILE O CARTELLE
+
+		find -type d 		per cercare solo cartelle
+
+		find -type f		per cercare solo file
+
+
+	OPERAZIONI CHE SI POSSONO SVOLGERE 
+
+		-print 		stampa a schermo il risultato 
+
+		-printf "%p qualcosa %u"	usato come nel linguaggio C
+
+		-delete		ELIMINA IL FILE TROVATO!!!!!!!
+
+		-exec operazioneDaFareSuiFileTrovati \: c		in questo modo posso eseguire dei comandi su ogni singolo file che trovo
+
+
+
+		

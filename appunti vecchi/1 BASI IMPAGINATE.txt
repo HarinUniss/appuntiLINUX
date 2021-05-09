@@ -1,0 +1,203 @@
+//		Commento
+/*...*/		Commento su più linee
+#		Elaborate dal preprocessore prima compilazione del programma
+#include <...>	Includi libreria
+
+;		Ogni istruzione deve terminare con il ;
+
+-------------------------------------------------------------------------------
+TIPI PRIMITIVI
+
+	char	Carattere	(1 byte)    può contenere qualsiasi carattere 
+					    definito secondo lo standard ASCII    
+	int	Numero intero	(2 byte) 	(-2,147'483'647 : 2,147'483'647)
+	short	Numero intero “corto” (2 byte)  (-32,767 : 32,767)
+	long	Numero intero “lungo” (4 byte)	
+	float	Numero reale	      (4 byte)	+/-(1e-38 : 1e+38)
+	double	Numero reale “lungo”  (8 byte)	+/-(2e-308 : 1e+308)
+
+per inizializzare una vatiabile carattere con la lettera a
+    
+    char nome = 'a';
+
+VALORE COSTANTE
+
+    const tipo nome = valore ;  //non potrà essere modificato, ma solo letto.
+ 
+COSE UTILI DA SAPERE:
+
+	int x = 12;	// significa 12
+	int x = 012;    // significa 10 (12 ottale)
+	int x = 0x12;	// significa 18 (12 esadecimale)
+
+	char carattere = 'A'; 	//il codice ascii di A
+	char carattere = 65 ; 	//il codice intero di A
+	char carattere = '\101'; //il codice ottale di A
+	char carattere = '\x41'; // il codice esadecimale di A
+
+	char carattereSpeciale = '\n';  //carattere "a capo"
+
+	float k = 3e-2 	// uso la notazione scientifica k vale 0.03 = 3*10^(-2) 
+
+CLASSI PER DEFINIRE UNA VARIABILE
+	const int a = 2	//creo una costante che non puó essere modificata 
+	extern float k = 2.3 //indica una varabile che non é dichiarata nel 
+				file di programma ma e dichiarata in un altro 
+				file che in quel momento non si sta editando o compilando 
+	register int j = 4;  // chiede al compilatore di salvare questa variabile 
+				all'interno dei registri della CPU 
+				(caso di una variabile usata molto frequentemente )
+	static int i = 4;  //ovunque sia dichiarata questa variabile, quando 
+				verra allocata in memoria, non potrá piu essere spostata 
+				e non permette la riInizzializzazione 
+				(utile quando vengono chiamate delle funzioni))
+
+-----------------------------------------------------------------------------
+CONVERTIRE I TIPI
+
+	nomeConvertito = (tipo) nomeDaConvertire 
+
+-----------------------------------------------------------------------------
+OPERATORI DI ASSEGNAZIONE ARITMETICI
+			     SIMBOLO	    ESEMPIO
+ Addizione			+          4 + 27 = 31
+ Sottrazione	                –         76 – 23 = 53
+ Moltiplicazione                *           4 * 7 = 28
+ Divisione intera               /          10 / 3 = 3  (3 è il n di volte 
+							divisibili senza resto)
+ Divisione con modulo           %          11 / 6 = 5    (5 è il resto 
+							    della divisione)
+			       += x	//aggiungi il valore di x
+			       -= x	//sottrai il valore di x
+
+-----------------------------------------------------------------------------
+OPERATORI DI ASSEGNAZIONE BIT A BIT
+&=	Operatore di assegnazione AND bit a bit
+|=	Operatore di assegnazione OR bit a bit
+^=	Operatore di assegnazione OR bit a bit
+<<=	Operatore di assegnazione di spostamento a sinistra
+>>=	Operatore di assegnazione di spostamento a destra
+
+-----------------------------------------------------------------------------
+OPERATORI DI CONFRONTO
+Simbolo		Significato		Utilizzo
+  ==		  uguale a		 a == b
+  !=		  diverso da		 a != b
+  <		  minore 		 a < b
+  >		  maggiore		 a > b
+  <=		  minore o uguale	 a <= b
+  >=		  maggiore o uguale	 a >= b
+
+-----------------------------------------------------------------------------
+OPERATORI BITWISE
+Questi operatori lavorano sui singoli bit dei tipi INTERI. 
+
+<< Spostamento di bit a sinistra di un numero specificato di posizioni di bit
+>> Spostamento di bit a destra di un numero specificato di posizioni di bit
+|  OR esclusivo sul singolo bit
+^  OR esclusivo sul singolo bit
+&  AND esclusivo lul bit
+~ NOT esclusivo sul bit
+
+-----------------------------------------------------------------------------
+OPERATORI LOGICI
+Simbolo		Significato		Utilizzo
+&&		AND logico		a && b
+||		OR logico		a || b
+!b		NOT logico		a
+
+-----------------------------------------------------------------------------
+*****************************************************************************
+main(void)
+	Funzione di partenza che non riceve nulla in entrata (void)
+
+FUNZIONI DI I/O
+
+	tipo nome = getchar()	legge un CARATTERE per volta dalla tastiera 
+				(per interromperlo premere CtrL+D) 
+
+	putchar()	legge un carattere alla volta e lo stampa a video
+
+	toupper()	trasforma il carattere in entrata nell'equivalente
+			in maiuscolo
+
+	printf()	Fa stampare sullo schermo la stringa di caratteri 
+			compresa tra le virgolette, 
+
+	scanf()		Legge un valore dallo Standerd Input
+
+-----------------------------------------------------------------------------
+FUNZIONI CONDIZIONALI 
+
+0 = falso 
+1 = vero	
+
+se CONDIZIONE fai questo, altrimenti fai quest altro
+ 
+if (/* condition */){
+    /* code */
+}else{
+    /* code */
+}
+----------------------------------------
+
+Finche i è ... fai questo e poi i++
+
+for (size_t i = 0; i < count; i++){
+    /* code */
+}
+----------------------------------------
+Finchè ... fai questo
+
+while (/* condition */){
+    /* code */
+}
+
+----------------------------------------
+
+do{
+    /* code */
+} while (/* condition */);
+
+----------------------------------------
+switch (expression)
+{
+case /* constant-expression */:
+    /* code */
+    break;
+
+default:
+    break;
+}
+
+-----------------------------------------------------------------------------
+*****************************************************************************
+SPECIFICAZIONI DI CONVERSIONE contraddistinte dal carattere percentuale “%”
+
+          STRINGA DI CONTROLLO		    COSA VIENE STAMPATO
+		%d, %i	- -- -- -- >Stampa come un intero decimale con segno.
+		%f	----------->Valore in virgola mobile
+		%c	- -- -- -- >Un carattere
+		%s	----------->Una stringa di caratteri
+		%o	- -- -- -- >Numero ottale
+		%x, %X	----------->Numero esadecimale senza segno
+		%u	- -- -- -- >Intero senza segno
+		%f	----------->Numero reale (float o double)
+		%e, %E	- -- -- -- >Formato scientifico
+		%%	----------->Stampa il carattere %
+
+		%p 	----------->(puntatore) Indirizzo di inizio del 
+					     elemento richiesto
+
+SEQUENZE DI ESCAPE:
+		\n	Ritorno a capo
+		\t	Tabulazione orizzontale
+		\b	Tabulazione verticale
+		\a	Torna indietro di uno spazio
+		\f	Salto pagina
+
+		\\	Backslash. Inserisce un carattere di backslash in 
+			una stringa. 
+
+		\"	Doppie virgolette. Inserisce un carattere di doppie 
+			virgolette in una stringa.

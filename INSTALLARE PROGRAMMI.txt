@@ -1,0 +1,34 @@
+FILE DI INSTALLAZIONE
+	I file di installazione sono dei .deb
+	e si trovano tutti nello stesso deposito server.
+
+	esistono piu copie dei depositi sparse per il mondo , 
+	in modo daa potersi connettere a quello piu vicino.
+
+
+SCEGLIERE IL DEPOSITO DAL QUALE FARE GLI  UPDATE 
+
+	ogni riga del file inizia con una delle due linee guida seguenti:
+	
+		deb: 	per scaricare la versione compilata (binaria) dei programmi. 
+			Questo è ciò che si desidera fare nella maggior parte dei 
+			casi perché è la versione "pronta all'uso";
+
+		deb-src: consente di recuperare il codice sorgente del programma. 
+			In generale, non ne hai bisogno a meno che tu non sia curioso 
+			e desideri vedere la fonte di un programma. 
+			Questo è il vantaggio del software libero per essere in 
+			grado di visualizzare la fonte dei programmi!
+
+
+
+STRUMENTI GESTIONE PACCHETTI 	(eseguire i comandi come amministratore)
+
+apt-get 	programma piu utilizzato 
+	
+	apt-get update  	aggiorna il programma e la lista dei possibili pacchetti che possiamo installare 
+
+	apt-cache search nomePacchetto		per RICERCARE un pacchetto specifico 
+
+	apt-get install nomePacchetto 		SCARICA e INSTALLA il pacchetto specifico
+

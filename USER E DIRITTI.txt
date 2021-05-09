@@ -1,0 +1,149 @@
+SUDO 	
+	
+	sudo comandoDaFare	Permette di diventare super utilizzatori per un comando
+
+	sudo  su 		Diventare amministratore e restarlo (ctrl+D per uscire dalla modalità amministratore)
+
+	sudo su - 		da usare se non sono su ubuntu 
+
+
+	
+
+AGGIUNGERE UN UTILIZZATORE 
+	
+	adduser nomeUser	permettte di aggiungere un utilizzatore 
+
+
+CAMBIARE PASWORD
+
+	passwd	nomeUtente	
+
+
+ELIMINARE UN UTILIZZATORE	
+	
+	deluser nomeUtente	elimina un utilizzatore MA NON  la sua directory HOME
+
+	deluser --remove-home nomeUtente
+
+	
+
+
+CREARE DEI GRUPPI 	(distro diverse da debian groupadd)
+	
+	addgroup nomeGruppo		crea il gruppo 
+
+	addgroup -g nomeGruppo nomeUtente	sposta l'itente nel gruppo specificato 
+
+	addgroup -G gruppo1,gruppo2,gruppo3 utente	metto l'utente in piu gruppi
+
+	addgroup -aG gruppo8 utente 		agiungo l'utente in un gruppo senza farli perdere gli altri gruppi
+
+	
+ELIMINARE UN GRUPPO 	(distro diverse da debian groupdel)
+	
+	delgroup nomeGruppo	
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+GESTIONE PROPRIETARI FILE E CARTELLE
+**********************************************************************************************************
+Solo un utilizzatore root può cambiare le proprietà di un file 
+
+CAMBIARE IL PROPRIETARIO DI UN FILE
+	sudo chown nomeNuovoProprietario nomeFile
+
+	
+CAMBIARE IL GRUPPO DI UN FILE
+
+	sudo chgrp nomeNuovoGruppo nomeFile
+
+CAMBIARE IL GRUPPO E IL PROPRIETARIO DI UN FILE
+	
+	sudo chown nuovoUtente:nuovoGruppo nomeFile
+
+	sudo chown -R nuovoUtente:nuovoGruppo nomeFile		PERMETTE DI INCLUDERE ANCHE LE SOTTOCARTELLE
+	
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+**********************************************************************************************************
+MODIFICARE I DIRITTI DI ACCESSO 	(chmod)
+**********************************************************************************************************
+	d rwx rwx rwx 1 harin harin    4096 Oct 10 10:58  OneDrive
+       |_|___|___|___|_|_____|_____|  |____|___|__|_____||________|
+        |  |   |   |  |   |     |        |   |   |   |       |
+        |  |   |   |  |   |     |        |   |   |   |       V
+	|  |   |   |  |   |     |        |   |   |   V       Nome dell'oggetto
+	|  |   |   |  |   |     |        |   |   V   Orario in 24 ore 
+	|  |   |   |  |   |     |        |   V   Giorno
+	|  |   |   |  |   |     |        V   Mese
+	|  |   |   |  |   |     V        Grandezza espressa in Byte
+	|  |   |   |  |   V     Proprietario file
+	|  |   |   |  V   Gruppo di appartenenza
+	|  |   |   V  Numero di PUNTATORI che esistono per quel nodo 
+	|  |   V   Autorizzazioni a CHIUNQUE ALTRO
+	|  V   Autorizzazioni al GRUPPO
+	V  Autorizzazioni al PROPRIETARIO del file (guardare tabella sotto)
+	Tipo di elemento (guardare tabella sotto)
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+DARE DEI DIRITTI CON DELLE CIFRE
+Diritti		Cifra		Calcolo
+---		0		0 + 0 + 0
+
+r--		4		4 + 0 + 0
+
+-w-		2		0 + 2 + 0
+
+--x		1		0 + 0 + 1
+
+rw-		6		4 + 2 + 0
+
+-wx		3		0 + 2 + 1
+
+r-x		5		4 + 0 + 1
+
+rwx		7		4 + 2 + 1
+
+	
+ 	chmod 600 rapport.txt		da le autorizzazioni rw- solo al proprietario del file
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+DARE DEI DIRITTI CON DEI SIMBOLI
+
+	
+u = user (proprietario) 
+
+g = group (grouppo) 
+
+o = other (altri)
+
+
++  « aggiungete diritto di » 
+
+-  « eliminare diritto di » 
+
+=  « stabilire i diritti »
+
+
+	chmod g+w rapport.txt		agiunge al gruppo il diritto di srittura
+
+	chmod u+rx rapport.txt		aggiunge all'utente il diritto di lettura ed esecuzione
+
+	
+	chmod g+w,o-w rapport.txt	aggungo il diritto di scrittura ai gruppi e lo tolgo agli altri 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+SPECIFICARE TUTTO IN MODO ESPLICITO
+
+	chmod u=rwx,g=r,o=- rapport.txt		do tutti i diritti al proprietario quello di lettura ai gruppi e nente agli altri 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
+POSSO USARE LA RECURSIVITA SULLE SOTTOCARTELLE CON -R 
+
+
+	chmod -R 700 /home/harin		divento l'unico che puo editare leggere e eseguire i file in quelle cartelle 
+

@@ -1,0 +1,20 @@
+GENERARE NUMERI CASUALI 
+
+#include <time.h>
+#include <stdlib.h>
+
+int main (){                    // srand( tipo ("seme") )  genera numeri 
+						  casuali basandosi sul seme.
+                                // time(NULL)   utilizza l'ora per cambiare 
+					             continuamente il numero.
+ srand(unsigned(time(NULL))); //generatore di numeri casuali basati sul tempo
+
+                 //serve per dare alla funzione rand() un seme sempre diverso
+   
+ int Casuale = rand();       //genera un numero casuale 
+
+ int CasualeDa0a100 = rand() % 101;  //genera un numero casuale da 0 a 100
+
+ int CasualeDa0a100 = (rand() % 101) -50 ;  //un numero casuale da -50 a 50 
+
+}

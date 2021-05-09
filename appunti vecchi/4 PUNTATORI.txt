@@ -1,0 +1,318 @@
+PUNTATORI
+
+	*nome	//considera quello che c'è dentro a "nome" come un indirizzo
+		//e vai a tale indirizzo
+
+-----------------------------------------------------------------------------	
+CREARE DELLE VARIABILI PUNTATORI DI VARI TIPI 
+
+int * nome =		//puntatore ad interi
+double * nome =		//puntatore per float 
+char * nome =		// puntatore per char
+
+%p 	//ci si rivolge all'indirizzo di un elemento 
+	  (nerl caso di un array è il primo elemento della tabella)
+
+-----------------------------------------------------------------------------
+INDIRIZZO DI UN INTERO
+
+	int main(){
+    		int a = 42;
+    		int * INDIRIZZO = &a;	//lettura dell'indirizo
+		prinft("indirizzo di a= %p\n", INDIRIZZO )
+	}
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+INDIRIZZO DI UN DOUBLE
+
+	int main(){
+    		double b = 58,1243;
+    		double * INDIRIZZO = &b;	//lettura dell'indirizo
+		prinft("indirizzo di b= %p\n", INDIRIZZO )
+	}
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+INDIRIZZO DI UN CHAR
+
+	int main(){
+    		char c = z;
+    		char * INDIRIZZO = &c;	//lettura dell'indirizo 			
+		prinft("indirizzo di c= %p\n", INDIRIZZO )
+	}
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+N.B. 	nella lettura dell'indirizzo bisogna specificare il tipo di variabile
+         della quale si vuole analizzare l'indirizzo, per capire e segnalare
+         la sua dimensione. 
+
+	sulle architetture di 32bit la dimensione degli indirizzi è di 4 Byte 
+
+	per architetture di 64biit la dimensione degli indirizzi è di 8 Byte 
+
+-----------------------------------------------------------------------------
+ACCEDERE ALL'INDIRIZZO DI UN PUNTATORE PER LEGGERNE IL CONTENUTO 
+
+#include <stdio.h>
+int main(){
+   
+double A = 42.98;
+double * indirizzoA = &A;
+printf("all'indirizzo %p abbiamo il valore %.2lf\n", indirizzoA,*indirizzoA);
+
+  //volendo mettere il contenuto di A i n B potrei operare in due modi
+		double B = A;
+
+  //oppure tramite puntatori gia dichiarati
+		double B = *indirizzoA;
+	
+  //volendo salvare l'indirizzo di A in B potrei operare in due modi:
+		double * B = &A
+
+  //oppure tramite puntatori gia dichiarati
+		douible B = indirozzoA
+		
+}
+
+-----------------------------------------------------------------------------
+INCREMENTO L'INDIRIZZO INTERNO AL PUNTATORE DI X int 
+(O IN GENERALE DEL TIPO DI PUNTATORE)
+
+	int *puntatore = A;
+	puntatore += X;
+
+DECREMENTO L'INDIRIZZO INTERNO AL PUNTATORE DI X double
+
+	double *puntatore = A
+	puntatore -= X;
+
+-----------------------------------------------------------------------------
+PUNTATORE CHE PUNTA A QUELLO CHE STA PUNTANDO UN ALTRO PUNTATORE
+
+	int *puntatoreB = (int *) puntatoreA;
+
+-----------------------------------------------------------------------------
+*****************************************************************************
+FUNZIONE CHE RICEVE IN INGRESSO L'INDIRIZZO DELLA VARIABILE 
+ALLA QUALE DEVE FARE RIFERIMENTO 
+
+*/ esempio funzione di inversione fra 2 valori 
+   Anziche scambiare i due valori della variabili A e B
+   vado a scambiare gli indirizzi, perche lavorando con delle variabili 
+   dentro la funzione queste verrebbero eliminate alla fine della funzione 
+   e non andrebbero a sostituire A e B. /*
+
+#include <stdio.h>
+
+void inverser(int * A, int * B){	//funzione che effettua l'inversione
+    int tmp = * A;
+    * A = * b;
+    * B = tmp;
+}
+
+int main(){
+    
+   int A = 1;
+   int B = 9;
+   inverser(&A,&B); 	//chiamata della funzione che ha in ingresso 
+			   gli indirizzi delle due variabili A e B
+   return 0;
+}
+
+
+-----------------------------------------------------------------------------
+*****************************************************************************
+PUNTATORI CON GLI ARRAY
+
+%p 	ci si rivolge all'indirizzo di un elemento 
+	(nerl caso di un array è il primo elemento della tabella)
+
+-----------------------------------------------------------------------------
+
+ int tab[3] = {15, 16, 17};	// creo un array di 3 "scatole" di dimensione
+                                                              int(8bit l'una)
+  printf("%p\n", tab);		
+  int * ptr = tab;		//creo un puntatore di nome"ptr" che contiene 
+				   l'indirizzo della prima casella dell'aray.
+  
+  * ptr = 2;			//metto in tab[0] il valore 2 (tramite il
+                                                              puntatore *ptr)
+  * (ptr + 1) = 3;-		//metto in tab[1] il valore 3 (tramite il
+                                                          puntatore *ptr + 1)
+  * (ptr + 2) = 4;		//metto in tab[2] il valore 3 (tramite il
+                                                          puntatore *ptr + 2)
+ 
+//Posso utilizzare direttamente l'indirizzo della primo Byte dell array
+
+ 
+  * tab = 9;			//metto in tab[0] il valore 9 (tramite il
+                                                             puntatore *tab)
+  * (tab + 1) = 10;		//metto in tab[1] il valore 9 (tramite il
+                                                          puntatore *tab +1)
+  * (tab + 2) = 11;		//metto in tab[2] il valore 9 (tramite il
+                                                          puntatore *tab +2)
+
+  return 0;
+
+-----------------------------------------------------------------------------
+RIINIZALIZZAZIONE DI UN ARRAY CON UNA FUNZIONE CHE UTILIZZA DEI PUNTATORI
+
+INDICARE IL PUNTATORE DI UN ARRAY IN ENTRATA DI UNA FUNZIONE
+
+(int * nome)
+(int nome[])	//N.B. le parentesi quadre devono restare vuote
+
+
+EX 1-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+	void remiseAZero(int * ptr){
+	    	* ptr = 0;	
+	    	* (ptr + 1) = 0;
+	    	* (ptr + 2) = 0;
+	}
+
+	int main(){
+	    
+	  	int tab[3] = {15, 16, 17};
+	  	remiseAZero(tab);
+
+	  	return 0;
+	}
+
+EX 2-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+
+	void remiseAZero(int ptr[]){
+	    	ptr[0] = 0;	
+	    	ptr[1] = 0;
+	    	ptr[2] = 0;
+	}
+
+	int main(){
+	    
+	  	int tab[3] = {15, 16, 17};
+	  	remiseAZero(tab);
+
+	  	return 0;
+	}
+
+ N.B. posso anche alternare "ptr[0]" con "* ptr"  nella stessa funzione 
+					perche tanto sono equivalenti.
+-----------------------------------------------------------------------------
+*****************************************************************************
+ARRAY DI PUNTATORI
+
+int main(){
+     
+     short A[3] = {1245, 2312, 234};
+     short B[2] = {24, 2451};
+     short C[4] = {23345, 2343, 8763, 3456};
+     
+     short * tabs[3] = {A,B,C};    //creo un array di puntatori che
+                                               puntano al primo indirizzo di A, B, C.
+
+     * tabs[0] = 5;		//modificare il primo elemento dell' array A
+     tabs[0][0] = 0;		//metodo alternativo (il [0] indica il primo
+ 								    elemento)
+
+     * (tabs[0] + 1) = 6;	//modificare il secondo elemento dell'array A
+     tabs[0][1] = 0;		//metodo alternativo (il [1] indica il
+ 							    secondo elemento)
+
+     * (tabs[0] + 2) = 7;	//modificare il terzo elemento dell'array A
+     tabs[0][2] = 0;		//metodo alternativo (il [2] indica il terzo
+                                                                     elemento)
+
+     * tabs[1] = 3;		//modificare il primo elemento dell'array B
+     tabs[1][0] = 0;		//metodo alternativo (il [0] indica il primo
+                                                                     elemento)
+
+     * (tabs[1] + 1) = 4;	//modificare il secondo elemento dell'array B
+     tabs[1][1] = 0;		//metodo alternativo (il [0] indica il
+                                                             secondo elemento)
+     
+     return 0;
+}
+-----------------------------------------------------------------------------
+*****************************************************************************
+PUNTATORI DI PUNTATORI
+
+//creo du e array  
+	short A[3] = {1245, 1924, 234};
+    	short B[2] = {24, 256};
+
+//creo un a tabella che contiente l'indirizzo del primo elemento di A e di B
+
+	short * T[2] = {A,B};
+	  |	| |	 |	
+	  |	| |	 |
+	  |	| |	 v	
+	  v	| |   contenuto	
+	tipo    | v
+		v dimensione
+               nome 
+					
+//chiamo la funzione che riceve in entrata la tabella di puntatori
+
+	RinomaArray(T)
+	     |      |		
+	     |      |		
+	     |	    v		
+	     v	ingresso 
+	nome funzione 
+
+//creo la funzione 
+		  puntatore
+		 di puntatore
+		       |
+		       v
+void RinomaArray(short ** T){
+
+	T[0][0] = 2;      //punto ad A[0] con due indici ([array] [elemento]) 
+
+    	*(T[0]) = 1;      //punto ad A[0] con un indice ([array]) e un 
+			      puntature che usa il contenuto tra le parentesi 
+					  come indirizzo.
+
+    	*(*T) = 0;     //punto ad A[0] usando i puntatori (puntatore
+                        interno che usa quello che contiene T come indirizzo) 
+			(puntatore esterno utilizza il valore al quale sta
+                          puntando il puntatore interno come indirizzo)
+
+    	T[0][1] = 0;   //punto ad A[1] con due indici ([array] [elemento]) 
+
+    	*(T[0] + 1) = 1;  //punto ad A[1] con un indice incrementato di 1 per 
+			    andare all'elemento successivo dell array A
+ 			    ([array]+1) e un puntature che usa il contenuto 
+					  tra le parentesi come indirizzo.
+
+    	*((*T) + 1) = 0;  //punto ad A[1] usando i puntatori (puntatore
+                            interno che usa il valore che contiene T come
+                                 indirizzo indicando cosi l'array A) 
+                            (il puntatore *T viene incrementato di 1,
+                            ottenendo l'indirizzo del secondo elemento di A)
+		            (il puntatore esterno userà il contenuto
+ 			     all'interno delle parentesi come indirizzo)
+
+    	T[1][1] = 0;      //punto ad B[1] con due indici ([array] [elemento])
+
+
+    	*(T[1] + 1) = 1; //punto ad B[1] con un indice incrementato di 1 per
+			   andare all'elemento successivo dell array B 
+			   ([array]+1) e un puntature che usa il contenuto 
+			   tra le parentesi come indirizzo.
+
+
+    	*(*(T + 1) + 1)=0;   //punto ad B[1] usando i puntatori
+			       (puntatore interno che usa il valore tra le
+    				parentesi (T incrementato 1) come indirizzo,
+    				indicando cosi l'array B)
+			       (il puntatore *(T+1) viene incrementato di 1,
+ 			ottenendo cosi l'indirizzo del secondo elemento di B)
+	 		       (il puntatore esterno userà il contenuto
+ 				all'interno delle parentesi come indirizzo)
+    		
+	ecc...		//contina cosi 
+}
+
+
+
+
+
+

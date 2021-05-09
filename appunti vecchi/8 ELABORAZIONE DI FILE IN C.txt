@@ -1,0 +1,321 @@
+ELABORAZIONE DI FILE IN C
+
+Il C vede ogni file semplicemente come uno STREAM (flusso) sequenziale di 
+byte (Figura 11.1).
+
+Ogni file termina o con un marcatore di end-of-file ( EOF ).
+
+FUNZIONE  feof()
+verifica quando il puntatore al suo interno punta a un end of file 
+
+
+Gli stream forniscono i canali di comunicazione tra file e programmi. 
+Quando un file viene aperto, a esso viene associato uno STREAM,
+			è vengono aperti 3 TREAM automaticamente:
+
+    • lo standard input "stdin" (che riceve input dalla tastiera)
+    • lo standard output "stdout" (che stampa output sullo schermo)
+    • lo standard error "stderr" (che stampa messaggi d’errore sullo schermo)
+
+
+
+
+STRUTTURA FILE
+L’apertura di un file restituisce un puntatore a una struttura FILE 
+(definita in <stdio.h>) contenente informazioni usate per elaborare il file.
+
+POSIZIONE DEL FILE DI TESTO:
+
+Il file deve essere all'interno della cartella del programma
+in caso contrario mettere l'indirizzo corretto del file
+		I
+
+
+-----------------------------------------------------------------------------
+FUNZIONE  feof()
+	
+	int feof(FILE *fp)
+
+        verifica quando il puntatore al suo interno punta a un end of file 
+
+	ENTRATA: Puntatore_a_file
+
+	RESTITUISCE:  0 se NON è stata raggiunta la fine del file
+		      altrimenti restituisce un valore logico (1).
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+FUNZIONE fgetc()
+
+	int fgetc(FILE *fp)
+	 
+        Legge un carattere da un file,riceve come argomento un puntatore a
+         FILE per il file da cui si leggerà il carattere.
+
+	ENTRATA: puntatore_a_file
+		 
+	RESTITUISCE: il valore letto (da salvare o inviare da qualche parte)
+		     altrimenti EOF
+
+   ES: fgetc (stdin);  //legge un carattere da stdin (lo standard input)
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+FUNZIONE  fputc()
+
+	int fputc(int car, FILE *fp)
+
+       Scrive un carattere su un file, riceve come argomenti un carattere da
+         scrivere e un puntatore per il file su cui verrà scritto il carattere.
+
+	ENTRATA:   int charattere
+		   puntatore_a_file
+
+	RESTITUISCE: in caso di successo è il carattere scritto
+		     altrimenti EOF
+ 
+ES:
+fputc ('a',stdout); //scrive il carattere 'a' su stdout (lo standard output).
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+FUNZIONE fgets()
+
+	char* fgets(char *stringa, int LunghezzaMax, FILE *fp)
+
+        legge una riga (string) da un file;
+
+	ENTRATA:  vettore di caratteri o puntatore della stringa
+		  lunghezza massima vettore 
+		  puntatore del file da leggere
+
+	RESTITUISCE: puntatore alla stringa 
+		     oppure errore restituisce NULL
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+FUNZIONE fputs()
+
+	int fputs(char *stringa, FILE *fp)
+
+Scrive una riga(string) su un file;
+
+	ENTRATA:   vettore o puntatore della strtinga
+		   puntatore  del file 
+
+	RESTITUISCE: 0 se non si verificano errori 
+		     altrimenti EOF
+
+----------------------------------------------------------------------------
+APRIRE UN FILE fopen()
+
+   FILE* fopen(char *nomefile, char *tipologiaDiLettura);
+
+   ENTRATA:  Nome del file txt Tipologia di lettura 
+
+	TIPOLOGIA DI LETTURA 
+	r 	apre un file in lettura.
+
+	w 	crea un nuovo file in scrittura; se il file esiste viene
+ 		        cancellato il contenuto.
+
+	a  	aggiunge (append) alla fine del file; se il file non esiste
+ 		        viene creato.
+
+	r+ 	apre un file in lettura/scrittura; il file deve esistere.
+
+	w+ 	crea un nuovo file in lettura/scrittura; se il file esiste
+ 		        viene cancellato il contenuto.
+
+	a+ 	aggiunge e legge a partire dalla fine del file; se il file
+ 		        non esiste viene creato.
+
+	rb 	Apre un file esistente per la lettura in forma binaria.
+
+	wb	Crea un file per la scrittura in forma binaria. Se il file
+ 			esiste già, elimina i contenuti correnti.
+
+	ab	Append: apre o crea un file per la scrittura alla fine del 
+			file in forma binaria.
+
+	rb+	Apre un file esistente per l’aggiomamento (lettura e
+ 				scrittura) in forma binaria.
+
+	wb+	Crea un file per l’aggiomamento in forma binaria. Se il file
+ 			esiste già, elimina i contenuti correnti.
+
+	ab+	Append: apre o crea un file per l’aggiornamento in forma 	
+		binaria; la scrittura è effettuata alla fine del file.
+
+   RESTITUISCE: NULL nel se non è riuscito ad aprire il file.
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+CHIUDERE UN FILE fclose()
+chiudere un file dopo averlo utilizzato.
+
+   fclose( puntatore_a_file )
+	ENTRATA:  puntatore del file da chiudere
+
+	RESTITUISCE:	chiusura è andata a buon fine restituisce 0
+			NON è andata a buon fine restituisce EOF
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+
+ES:
+
+#include <stdio.h>
+int main (){
+	
+	FILE * f ;	//creo un puntatore di tipo FILE di nome f
+	f = fopen("nome.txt","tipologia di lettura r o w");
+
+	/* verifica se il file è stato aperto */
+	if (f = NULL){
+		printf ("Il file non è stato aperto correttamente!!!");
+		return 1;
+	}
+	fclose(f);	//chiudo il file nome.txt
+}
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+LEGGERE UNA RIGA DA FILE
+
+	fgets(nome_vettore , dimensione_vettore , puntatore_a_file);
+		   ^		      ^
+		   |		      |	  		  
+		   |		 dimensione della riga vhe leggo 
+		   |		 deve essere <= agli elementi del vettore 
+		   |		   
+		  Nome vettore nella quale salverò una riga del file letto
+
+ES : 
+	char riga [50];
+	fgets(riga, 50 , puntatore_a_file); //scrive i primi 50 caratteri di
+					      un file in un vetto re riga
+  
+  /*Se si vuole leggere e stampare  l'intero file sarà necessario un while*/
+
+ES2:
+
+	char riga;
+	
+	while ( !feof( puntatore_a_file ) ){       //procedi finchè non siamo
+ 							alla fine del file
+		fgets(riga , 50 , puntatore_a_file);
+		printf("%s", riga);
+	}
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -
+-----------------------------------------------------------------------------
+FUNZIONE fscanf()
+Legge da un file in modo formattato, chiaramente dopo l’apertura con fopen.
+
+
+	int fscanf(FILE *fp, "char *formato", [argomenti]...)
+
+	ENTRATA: puntatore allo stream
+		 altri argomenti come scanf
+
+	RESTITUISCE: ritorna un valore intero, che rappresenta 
+		     il numero di caratteri letti.
+
+FUNZIONE fprintf()
+funzione che permette di scrivere sui file in modo formattato.
+
+	int fprintf(FILE *fp, "char *formato", argomenti…);
+
+	ENTRATA: puntatore di un file ottenuto dalla chiamata fopen
+		 "formato tra le virgolette", con argomenti come un printf
+
+	RESTITUISCE:  un intero (numero dei caratteri scritti nello stream)
+		      In caso di insuccesso EOF (end of file). 
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -
+FUNZIONE rewind();
+funzione che permette di riposizionarsi nuovamente all’inizio di un file.
+
+	void rewind(FILE *fp);
+	
+	ENTRATA: puntatore di un file ottenuto dalla chiamata fopen
+	
+	RESTITUISCE:  
+
+-----------------------------------------------------------------------------
+FILES AD ACCESSO CASUALE
+
+Ogni record in un file ad accesso casuale ha normalmente la stessa lunghezza,
+    la pisizione esatta di un record rispetto all'inizio del file puo essere 
+	  	         calcolata come una funzione della chiave del record.
+
+Le funzioni fwrite e fread possono leggere e scrivere array di 
+							dati da e su file. 
+Il terzo argomento sia di fread che di fw rite è il numero di 
+      elementi dell’array che deve essere letto dal disco oscritto sul disco.
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -
+FUNZIONE fwrite() 
+
+	size_t fwrite(void *punt, size_t dim, size_t num, FILE *fp)
+
+trasferisce un numero specificato di byte su un file, a cominciare da una 
+						   data posizione in memoria.
+
+La funzione fwrite consente quindi di scrivere i dati di un file binario. 
+Per la scrittura a blocchi è necessario che il file sia stato aperto
+ 						     in modalità binaria (b).
+
+ENTRATA:
+	punt	indirizzo della locazione di partenza su cui scrivere i dati
+	dim 	dimensione in byte del singolo dato 
+	num 	numero degli elementi da scrivere nello stream.
+	FILE*fp  puntatore al file restituito dalla funzione fopen
+	
+RESTITUISCE:  	numero di elementi effettivamente memorizzati sul file. 
+          	nel caso di valore negativo allora vuol dire che è stato
+		commesso qualche errore.
+
+	fwrite(&numberj sizeof(int), 1, fPtr);
+
+scrive sempre quattro byte, su un sistema con interi di quattro byte, 
+contenuti in una variabile number sul file rappresentato da fPtr
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -
+FUNZIONE fread()
+
+	size_t fread(void *punt, size_t dim, size_t num, FILE *fp)
+
+trasferisce un numero specificato di byte dalla posizione nel file 
+     specificata dal puntatore di posizione del file a un’area nella memoria, 
+				    a cominciare da un indirizzo specificato.
+
+permette di leggere su un file un blocco di dati di qualsiasi tipo, 
+     			consente quindi di leggere i dati di un file binario.
+
+necessario che il file sia stato aperto in modalità binaria (b).
+
+	SE punt rappresenta un vettore, allora in esso verrano trasferite
+ 				              le informazioni lette dal file.
+
+
+ENTRATA:
+	punt 	indirizzo della locazione di partenza da cui leggere i dati
+	dim 	dimensione in byte del singolo dato
+	num 	numero degli elementi da leggere nello stream
+	FILE*fp puntatore al file restituito dalla funzione fopen
+
+RESTITUISCE:
+	Quando la funzione termina di leggere tutto il contenuto del file 
+	ritorna il valore 0 
+	(indica quindi che il puntatore è posizionato alla fine).
+
+	SE si tenta nuovamente di leggere la funzione restituirà il valore 0
+	per indicare che il puntatore è a fine file.
+
+
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -
+sprintf()
+permette di utilizzare una stringa come stdout di una printf, quindi 
+memorizziamo il risultato della stampa all'interno dell'array di caratteri
+
+	int sprintf(char* str, char* format,…) 
+
+ 	str è la stringa usata come buffer e 
+	l'intero ritornato è il numero di caratteri effettivamente stampati.
+
+

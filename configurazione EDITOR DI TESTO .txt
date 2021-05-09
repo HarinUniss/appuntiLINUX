@@ -1,0 +1,64 @@
+#################################################################################
+NANO
+#################################################################################
+
+nano -m		autorizza l'utilizzo del mouse su Nano
+
+nano -i 	indentrazione automatica quando su usa il tab 
+
+nano -A		non ho ben capito -.-"
+
+nano -miA	come piace a me!!!!	
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+CONFIGURARE NANO CON UN FILE .nanorc
+
+	.nanorc	     file di configurazione nascosto che si trova in /home/harin/.nanorc
+	
+	nano .nanorc 	se non c'è il file, crearlo 
+
+
+	SCRITTURA DEL FILE	.nanorc 	(per un singolo utente)
+		2 COMANDI
+
+		set 	per attivare qualcosa
+
+		unset 	per disattivare qualcosa 
+	
+	_________________________________________________________________________
+	|									|
+	|set mouse 								|
+	|									|
+	|set autoindent								|
+	|									|
+	|set smarthome								|
+	|									|
+	|-----------------------------------------------------------------------|
+	
+	
+	SCRITTURA FILE .nanorc
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
