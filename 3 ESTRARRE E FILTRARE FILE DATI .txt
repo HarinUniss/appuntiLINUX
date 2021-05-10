@@ -1,0 +1,214 @@
+########################################################################################################
+GREP 	filtrare i dati 
+########################################################################################################
+
+permette di ricercare una parola dentro al file e di stampare la linea in cui è stata trovata 
+
+grep "testo" nomeFile		cerca tutte le linee contenenti il testo e le stampa a schermo 
+
+
+
+	-i 	permette di non considerare minuscole e maiuscole
+
+
+	-n 	stampa anche il numero della linea dove ho trovato il testo 
+
+	-v 	IGNORO le linee contenenti il testo
+
+	-r	ricercare in tutti i file dalla directory e delle sotto directory 
+		in questo caso al posto del nomeFile metterò l'indirizzo della directory
+
+		"grep -r"  si puo anche scrivere "rgrep"
+
+
+	-E	UTILIZZARE GREEP CON DELLE ESPRESSIONI REGOLARI 	
+		
+		"grep -E"  si puo anche scrivere "egrep"
+		Carattere	significato
+
+		.			Carattere di qualsiasi tipo
+
+		^			Parola a inizio linea
+
+		$			Parola a fine linea
+	
+		[]			Uno dei caratteri tra le parentesi
+
+		?			Il carattere precedente è facoltativo (può essere presente 0 o 1 volta)
+
+		*			Il carattere precedente può essere presente 0, 1 o più volte
+
+		+			Il carattere precedente deve essere presente una o più volte
+
+		|			Dove
+
+		()			Gruppo di espressioni
+
+
+
+		ESEMPI
+		grep -E [Aa]lias .bashrc	mostra tutte le linee che contengono Alias con A maiuscola o minuscola
+
+		grep -E [0-4] .bashrc		mostra tutte le line contenenti un NUMERO DA 0 a 4
+
+		grep -E [a-zA-Z] .bashrc	mostra tutte le linee che hanno dei caratteri che vanno da "A" a "Z" oppure da "a" a "z"
+
+		
+
+
+########################################################################################################
+SORT 	selezionare e organizzare il contenuto di un file 
+########################################################################################################
+
+sort nomeFile 		ordina le righe in ordine alfabetico, i numeri hanno ancora piu precedenza 
+			NON differenzia tra minuscolo e Maiuscolo 
+
+	-o 	scrive il risultato in un file 
+
+			sort -o nomiOrdinati.txt nomi.txt
+
+	-r 	ordina in modo INVERSO 
+
+	
+	-R	odina A CASO!!! 
+
+	-n 	ordina i numeri ma li mette per ultimi rispetto alle lettere 
+		inoltre leggerà tutta la riga del numero non solo il primo carattere
+
+########################################################################################################
+WC 	contare il numero di linee
+########################################################################################################
+
+wc nomeFile	stampa: numeroLinee numeroParole numeroByte
+
+	-l 	stampa solo il numero di linee
+
+	-w 	stampa solo il numero di parole
+
+	-m	stampa il numero dei caratteri 
+
+	-c 	stampa il numero di Byte occupati dal file 
+	
+	
+	
+
+########################################################################################################
+uniq 	eliminare righe doppie dalla stampa
+########################################################################################################
+
+uniq nomeFil
+	il comando funziona solo se una o piu  linee successive tra loro sono uguali 
+	è meglio prima creare un file ordinato ALTRIMENTI NON FUNZIONA
+
+	-c 	stampa anche il numero che indica quante volte è presente la riga 
+
+	-d	stampa solo una volta le righe che sono DOPPIE  (NON triple)
+
+########################################################################################################
+cut 	stampa una parte del file 
+########################################################################################################
+
+	cut -c 2-5 noms.txt 		conserva unicamente i caratteri da 2 a 5 di ogni linea
+
+	
+	cut -c -3 noms.txt 		conserva i primi 3 caratteri di ogni linea
+
+	
+DELIMITARE UN FILE 
+
+	ESEMPIO DI FILE
+	_________________________________________________
+	| Fabrice,18 / 20,Excellent travail		|
+	| Mathieu,3 / 20,Nul comme d'hab		|
+	| Sophie,14 / 20,En nette progression		|
+	| Mélanie,9 / 20,Allez presque la moyenne !	|
+	|-----------------------------------------------|
+	le VIRGOLE delimitano i blocchi che si possono stampare singolarmente 
+
+
+	-d 	indica che c'è un DEELIMITATORE nel file 
+	-f 	indica il numero blocco che si vuole stamppare
+
+		
+	cut -d , -f 1 nomeFile		stamperà i primi blocchi delle righe 	
+	
+	cut -d , -f 2 nomeFile		stamperà i secondi blocchi delle righe 
+
+	cut -d , -f 3 nomeFile		stamperà i terzi blocchi delle righe 
+
+	cut -d , -f 1,3 nomeFile	stamperà i primi e i terzi blocchi delle righe 
+
+	cut -d , -f 2- nomeFile		stamperà DAL SECONDO BLOCCO IN POI PER OGNI RIGA 
+	
+	
+	NB ricordare di non lasciare spazio tra le virgole del comando se si vogliono individuare piu blocchi
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

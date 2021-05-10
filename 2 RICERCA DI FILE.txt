@@ -24,8 +24,8 @@ RICERCA PIU APROFONDITA SU TUTTO IL DISCO RIGIDO
 	RICERCA APARTIRE DALLA DIMENSIONE
 
 		find  -size +10M		(posso usare + - e M k G )
+				posso anche scrivere C per indicare il numero di caratteri
 
-	
 
 	RICERCA A PARTIRE DALLA DATA ULTIMO ACCESSO 
 
