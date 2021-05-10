@@ -1,5 +1,5 @@
 ########################################################################################################
-GREP 	filtrare i dati 
+GREP 	filtrare i dati
 ########################################################################################################
 
 permette di ricercare una parola dentro al file e di stampare la linea in cui è stata trovata 
