@@ -116,6 +116,8 @@ cut 	stampa una parte del file
 	
 DELIMITARE UN FILE 
 
+     cut -d <simboloDelimitazione> -f 1 nomeFile
+
 	ESEMPIO DI FILE
 	_________________________________________________
 	| Fabrice,18 / 20,Excellent travail		|

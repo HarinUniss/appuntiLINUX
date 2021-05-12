@@ -1,0 +1,70 @@
+Per default le uscite vengono direzionate verso la Console
+
+		CURIOSITA CARTELLA BUCO NERO 	/dev/null	TUTTO QUELLO CHE CI ENTRA SPARISCE
+		
+
+####################################################################################
+>   >>   REDIGERE I RISULTATI IN UN FILE 
+####################################################################################
+	
+
+	> 	redigere l'uscita in un nuovo file 
+
+		comando > nomeFileDaScrivere
+
+	>>	redirigere l'uscita alla fine di un file 
+
+		comando >> nomeFileDaContinuare
+
+
+
+####################################################################################
+2>  2>>  DIREZIONARE GLI ERRORI IN UN FILE SPECIFICO
+####################################################################################
+
+
+	2> 	redige i comandi di erore in un file apparte 
+				
+		comando 2> fileDoveScrivoErrore
+
+	2>>	redirigere gli errori alla fine di un file 
+
+		comando 2>> fileDoveAgiungoGliErrori	
+
+
+####################################################################################
+2>&1	DIREZIONARE SIA GLI ERRORI CHE LE USCITE NELLO STESSO FILE 
+####################################################################################
+
+	comando > nomefile 2>&1
+
+	comando >> nomefile 2>&1
+
+####################################################################################
+<   << 		LEGGERE DA UN FILE O DALLA TASTIERA
+####################################################################################
+	
+	<		usare un file come input per un comando 
+
+
+	<< fine		usare la tastiera per scrivere in imput di un comando 
+	
+			comando << codicePerTerminareL'imput
+
+			sort -n << FINITODISCRIVERE
+	
+####################################################################################
+   |	CONCATENARE DEI COMANDI 
+####################################################################################	
+	Permette di collegare l'uscita di un comando con l'entrata di un altro 
+
+	comando1 | comando2 | comando3
+
+
+
+
+
+
+
+
+				

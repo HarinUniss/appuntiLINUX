@@ -1,0 +1,70 @@
+ctrl + a	ritorno ad inizio linea 
+
+ctrl + e	ritorno a fine linea
+
+ctrl + u 	taglia tutto quello prima del cursore
+
+ctrl + k	taglia tutto quello dopo il cursore 
+
+ctrl + y 	incolla linea
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - 
+
+ctrl + r	avvio la ricerca di un comando 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - 
+
+alt + Backspace 	taglia la parola prima del cursore (se lo faccio piu volte sommo tutte le parole tagliate)
+
+alt +d		taglia la parola dopo il cursore (se lo faccio piu volte sommo tutte le parole tagliate)
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - 
+
+history 	comando che permette di visualizzare tutto lo storico dei comandi 
+
+clear 		pulisce la bash 
+
+
+!! 		esegue l'ultimo comando 
+
+	
+!caratteriUltimoComando		esegue l'ultimo comando che inizia con quei caratteri
+
+!?caratteriUltimoComando		esegue l'ultimo comando che finisce con quei caratteri		
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - 
+
+Tab 		permette di autocompilare una parte del testo scritto 
+
+Tab + Tab	permette di visualizzare le possibilità anbigue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
