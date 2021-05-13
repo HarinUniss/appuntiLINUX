@@ -31,6 +31,8 @@ clear 		pulisce la bash
 
 !?caratteriUltimoComando		esegue l'ultimo comando che finisce con quei caratteri		
 
+cia?	sto indicando tutti i comandi o file che iniziano con cia 
+
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - 
 

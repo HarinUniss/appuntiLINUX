@@ -23,19 +23,22 @@ nome*	tutti i file con nome è qualcosaltro dopo
 
 (.)PUNTO all?inizio di un nome rende il file o la directory NASCOSTA
 
+? 	rimpiazza un carattere o tutti i successivi o precedenti 
+
+[]	rimpiazza un carattere con quelli presenti tra parentesi 
 
 
 ########################################################################################################
 SPOSTARSI E RITROVARSI ALL'INTERNO DEL FILE SYSTEM
 ########################################################################################################
 
-pwd	identifica la cartella sulla quale si sta lavorando
+pwd		identifica la cartella sulla quale si sta lavorando
 
-which	conoscere la posizione di un programma o una cartella o qualcosa	
+which		conoscere la posizione di un programma o una cartella o qualcosa	
 
-echo "qualcosa"	stampa sullo schermo qualcosa
+echo "qualcosa"		stampa sullo schermo qualcosa
 
--- 	anteporre seguiti da uno spazio  ai file che iniziano con - . * ? $  [ ] ecc..
+-- 		anteporre seguiti da uno spazio  ai file che iniziano con - . * ? $  [ ] ecc..
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - -  -
 
@@ -93,6 +96,11 @@ ls -i 	permette di visualizzare il numero di nodo al quale fa riferimento il fil
 ls -F	visualizza che tipo di directory è il file elencato con un simbolo  (guardare tabella sotto)
 
 ls --color	visualizza che tipo di directory è il file elencato con un colore differente
+
+
+ls [a-m]	lista tutti i file che iniziano con le lettere che vanno da "a" a "m"
+
+
 ---------------------------------------------------------------------------------------------------
 ls -F				|	ls --color                                              
 *	eseguibile		|	Colore di defaut 	file normale

@@ -147,9 +147,16 @@ DELIMITARE UN FILE
 
 
 	
+########################################################################################################
+less	stampare il file 
+########################################################################################################
 
+	less 	permette di spostarmi nel file 
 
+		RICERCA ALLL INTERNO DI less 
+			/lettereCheCerco
 
+	q 	per uscire
 
 
 
