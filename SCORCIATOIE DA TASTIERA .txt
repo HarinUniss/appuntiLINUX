@@ -4,7 +4,7 @@ ctrl + e	ritorno a fine linea
 
 ctrl + u 	taglia tutto quello prima del cursore
 
-ctrl + k	taglia tutto quello dopo il cursore 
+ctrl + w	taglia tutto quello dopo il cursore 
 
 ctrl + y 	incolla linea
 
@@ -18,20 +18,63 @@ alt + Backspace 	taglia la parola prima del cursore (se lo faccio piu volte somm
 alt +d		taglia la parola dopo il cursore (se lo faccio piu volte sommo tutte le parole tagliate)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - 
-
+##################################################################################
 history 	comando che permette di visualizzare tutto lo storico dei comandi 
+##################################################################################
+
+	history 	comando che permette di visualizzare tutto lo storico dei comandi 
+
+	history -c	cancella lo storico
+
+	history -w nomeFile	salva lo storico dei comandi in un file 
+
+	history -r nomeFile	mette i comandi presenti nel file nello storico dei comandi attuale
+
+	ctrl + r 	ricerca di un comando nello storico 
+
+	ctrl + g 	per abbandoanare la ricerca 
+
+----------------------------------------------------------------------------------
 
 clear 		pulisce la bash 
 
 
 !! 		esegue l'ultimo comando 
 
+sudo !! 	esegue l'ultimo comando fatto come amministratore
+
+!cd 		esegue ultimo comando utilizzato per posizionarci in una directory 
+
+!cd:p 		ricerca senza eseguire ultimo comando utilizzato per posizionarci in una directory 
+
+!?due?		esegue ultimo comando che conteneva la stringa "due"
+
+!347		esegue il comando numero 347
+
+!-4		eseguo il comando fatto prima dei miei successivi 3
 	
 !caratteriUltimoComando		esegue l'ultimo comando che inizia con quei caratteri
 
 !?caratteriUltimoComando		esegue l'ultimo comando che finisce con quei caratteri		
 
 cia?	sto indicando tutti i comandi o file che iniziano con cia 
+
+
+comando !*	utilizzo il comando con tutti gli ultimi argomenti usati 
+
+comando !^	utilizzo il comando con il primo argomento utilizzato 
+
+comando !$ 	utilizzo il comando con l'ultimoo argomento utilizzato 
+
+comando !!:numero	utilizzo il comando con l'argomento numero 
+
+comando !!:numeroA-numeroB		utilizzo il comando con l'argomenti da Numero a Numero
+
+
+EX
+	Cerco il comando 72 e lo eseguo con gli argomenti da 2 a 4 del comando 138
+
+	!72:0 !138:2-4
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - 

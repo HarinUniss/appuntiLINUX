@@ -10,6 +10,10 @@ nano -A		non ho ben capito -.-"
 
 nano -miA	come piace a me!!!!	
 
+
+ctrl + c 	per visualizzare il numero della riga alla quale mi trovo 
+
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 CONFIGURARE NANO CON UN FILE .nanorc
 
