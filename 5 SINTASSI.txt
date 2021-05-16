@@ -1,0 +1,100 @@
+settare la bash per segnalare possibili variabili inesistenti 		set -u
+
+
+CREAZIONE VARIABILE 
+	nomeVariabile=Valore		da notare che NON ci sono spazi!!!!
+
+	nomeVariavile=Indrizzo		
+
+ACCEDERE AI VALORI DI UNA VARIABILE 
+	$nomeVariabile
+
+SOSTITUZIONE NOME DI UN FILE  
+	*nomeFile
+SOSTITUZIONE NOME VARIABILE
+	${nomeVariabile}
+
+CATTURARE L'USCTA DI UN COMANDO (sostituzione di un comando)
+	$(comando)
+	
+SALVARE L'USCITA DI UN COMANDO DENTRO UNA VARIABILE 
+	Variabile=$(comando)
+
+ELIMINARE UNA VARIABILE 
+	unset nomeVariabile	
+
+INIBIZIONI
+	INIBIZIONE TOTALE
+	'punteggiatura variabili e comandi '		tutto quello che si trova tra i due apici viene considerato come testo 
+
+	INIBIZIONE PARZIALE
+	"punteggiatura variabili e comandi "	 	comandi e punteggiatura vengono letti comme caratteri
+
+	INIBIZIONE CARATTERE
+	\punteggiatura variabili e comandi		inibisce solo l'elemento successivo 
+
+CONCATENAZIONE DI PIU VARIABILI
+	$ariabile1$variabile2
+
+
+--------------------------------------------------------------------
+MANIPOLAZIONE STRINGA DI CARATTERI 
+
+	VEDERE LA LUNGHEZZA DI UNA STRINGA
+		echo ${#variabile}
+
+	SOSTITUIRE CARATTERE DI UNA STRINGA CON UN ALTRO (o una sequenza)
+		
+		SOLO IL PRIMO CARATTERE ROVATO
+			echo ${variabile/carattereVecchio/carattereNuovo}
+		TUTTI I CARATTERI UGALI NELLA STRINGA
+			echo ${variabile//carattereVecchio/carattereNuovo}
+
+	VISUALIZZARE QUELLO CHE SI TROVA DOPO UN CARATTERE 
+		variabile%carattere*
+
+			filename=/home/alice/file.txt
+			echo ${filename%/*}
+			/home/alice			//ho eliminato dalla stringa file.txt
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
