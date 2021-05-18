@@ -1,0 +1,114 @@
+GESTIONE DEIPROCESSI 
+
+	CDICE RITORNO DI UN PROCESSO
+		$?	se é zero vuol dire che il processo precendente è stato 
+			eseguito correttamente altrimenti ritorna 1 se ci sono dei roblemi 
+	
+
+
+	ATRIBUTI DI UN PROCESSO 
+
+		PROPRIETARIO (UID)  id del utilizzatore che ha fatto partire il processo 
+
+		ID DEL PROCESSO (PID)	id dell processo
+
+		ID PROCESSO MADRE(PPID)	id del processo madre 
+
+		COMANDO, OPZIONE, ARGOMENTO (CMD)	noeComando , opzioni , argomenti 
+
+	VISUALIZZARE LISTA ATTRIBUTI PROCESSI
+		ps -f
+
+	
+SOSPENDERE L'ESECUZIONE DI UN PROCESSO 
+	
+	sleep 10 	sospende l'esecuzione di un processo per 10 secondi
+
+ESEGUIRE UN COMANDO IN BACKGROUND
+	comando argomenti &
+
+LISTARE I PROCESSI IN BACKGROUND 	
+	jobs		attiribuisce un numero ad ogni processo elencato 
+
+
+RIPORTARE UN COMANDO IN PRIMO PIANO 
+	fg %numeroProcesso
+
+
+STOPPARE UN COMANDO 
+	ctrl+z
+	
+
+REINVIARE UN COMANDO IN BACKGROUND
+	bg 		invia comando in esecuzione in Back Ground
+
+
+ELIMINARE UN PROCESSO
+	
+	kill -l 	elenca la lista di tutti i possibili codici di processi che posso eliminare
+		1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP
+		6) SIGABRT 7) SIGBUS 8) SIGFPE 9) SIGKILL 10) SIGUSR1
+		11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM
+		16) SIGSTKFLT 17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP
+		21) SIGTTIN 22) SIGTTOU 23) SIGURG 24) SIGXCPU 25) SIGXFSZ
+		26) SIGVTALRM 27) SIGPROF 28) SIGWINCH 29) SIGIO 30) SIGPWR
+		31) SIGSYS
+
+		BREVE LISTA CODICI PIU UTILI 
+		— SIGTERM pour terminer un processus avec fermeture normale de ses fichiers. Ce signal peut être ignoré par certain processus. C’est le signal par défaut de la commande kill.
+		— SIGKILL teminare un precosso in modo brutale in qualsiasi circostanza.
+		— SIGINT chiudere un processo.
+		— SIGQUIT interromere il processo memorizando il suo STATO in uno spazzio di memoria per poi eventualmente fare il debuching
+		— SIGSTOP pour stopper ou arrêter provisoirement un processus.
+		— SIGCONT pour remettre en exécution un processus stoppé.
+		— SIGHUP (hangup) pour demander à un processus démarré par le système de relire ses fichiers de configuration.	
+
+	kill -NUMERO IDprocesso
+
+	
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+GESTIONE TERMINALI LINUX
+
+
+tmux	comando che permette la creazione di un numero illimitato di terminali al suo interno 
+ 
+
+
+CTRL + b puis c Créer un nouveau terminal dans la console.
+CTRL + b puis n Passer au terminal suivant dans la liste (next).
+CTRL + b puis w Afficher la liste des terminaux.
+CTRL + b puis & Supprimer le terminal virtuel courant.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
