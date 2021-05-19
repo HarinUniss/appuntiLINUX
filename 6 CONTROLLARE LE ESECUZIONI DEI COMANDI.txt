@@ -81,8 +81,17 @@ ELIMINARE UN PROCESSO
 	kill -NUMERO IDprocesso
 
 	
-
+	kill -9 IDprocesso	arresta il processo in modo violento senza aspettare
 	
+	killall NomeProcesso
+
+- -- - -- - -- - - - - --   - - - -- - - - -- - - - -- - - - -- - - - - -- - - -- - - - - 
+SPEGNERE E IL PC
+	sudo halt
+
+RIAVVIARE IL PC 
+	sudo  reboot
+- -- - -- - -- - - - - --   - - - -- - - - -- - - - -- - - - -- - - - - -- - - -- - - - - 
 
 
 	
@@ -90,11 +99,21 @@ SOSPENDERE L'ESECUZIONE DI UN PROCESSO
 	
 	sleep 10 	sospende l'esecuzione di un processo per 10 secondi
 
-ESEGUIRE UN COMANDO IN BACKGROUND
+ESEGUIRE UN PROCESSO IN BACKGROUND
 	comando argomenti &
 
+DISSTACCARE UN PROCESSO DALLA CONSOLE	(anche se chiudo la console il comando continua a girare)
+	nohup comando
+	
 LISTARE I PROCESSI IN BACKGROUND 	
 	jobs		attiribuisce un numero ad ogni processo elencato 
+
+STOPPARE UN COMANDO inviandolo in background
+	ctrl+z		il comando resta in uno stato di pausa in background
+
+FAR RIPARTIRE UN COMANDO STOPPATO CHE SI TROVA IN BACKGROUND
+	
+	bg 		invia comando in esecuzione in Back Ground
 
 
 RIPORTARE UN COMANDO IN PRIMO PIANO 
@@ -103,16 +122,21 @@ RIPORTARE UN COMANDO IN PRIMO PIANO
 
 
 
-STOPPARE UN COMANDO inviandola in background
-	ctrl+z
-	
-
-REINVIARE UN COMANDO IN BACKGROUND
-	
-	bg 		invia comando in esecuzione in Back Ground
-
-
-
+	_________________		_________________
+	|   BACKGROUND 	|	bg	|   BACKGROUND 	|
+	| IN ESECUZIONE	| <<----------- |    IN PAUSA	|
+	|_______________|		|_______________|
+            |       ^                       |      ^	    
+         fg |       | &                  fg |      | Ctrl+Z
+            v       |                       v      |
+	_________________________________________________
+	|						|
+	|	  IN ESECUZIONE IN PRIMO PIANO 		|
+	|_______________________________________________|
+				|
+				|  Ctrl+C
+				V
+			     ARRESTO 
 
 
 
