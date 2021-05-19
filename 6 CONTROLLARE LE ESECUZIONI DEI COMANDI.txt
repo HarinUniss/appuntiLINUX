@@ -1,49 +1,64 @@
+VISUALIZZARE PROCESSI (su ubuntu)
+	w		restituisce la lista degli utenti collegati cosa stanno facendo e da quanto  
+
+	16:50:30 up  8:50,  2 users,  load average: 0,08, 0,34, 0,31		<--------ORA/ DURATA FUNZIONAMENTO PC/ NUMERO UTENTI / CONSUMO CPU ultimo minuto , ultimi 5, ultimi 15
+	USER     TTY      FROM            LOGIN@   IDLE   JCPU   PCPU WHAT	<--------lista utenti collegati
+	mateo21  :0       -              19Apr08 ?xdm?   3:38m  1.18s /usr/bin/gnome-
+	mateo21  pts/0    :0.0           16:49    0.00s  0.33s  0.03s w
+	   |      |         |               |        |     |       |    |
+	   |      |         |               |        |     |       |    V
+	   |      |         |               |        |     |       V	Comando che è stato eseguito 
+	   |      |         |               |        |     V
+	   |      |         |               |        V	  
+	   |      |         |               V	    Da qualto l'utente è in attivo (tempo ultimo comando effettuato)
+	   |      |         V		   Ora alla quale l'utente si è collegato 
+	   |      V	    Indirizzo IP se l'utente si è collegato da un altro PC
+	   V      Nome Console nella quale sta lavorando l'user (da pst/0 fino a pts/6 e con le console grafiche n eposso aprire infiniti)
+	   Nome utilizzatore
+
+ELENCARE I PROCESSI 
+
+	ps 		lista semplice procesi 
+
+	ps -f		lista con atributi dei processi 
+		
+	ps -ef 		lista tutti i processi di tutti gli utilizzatori 
+
+	ps -ejH		raggruppa i processi in strutture ad albero (proceso madre e succesivamente i figli)
+
+	ps -u nomeUtente	processi lanciati da un singolo utilizzatore	
+
+		UID 	PROPRIETARIO  id del utilizzatore che ha fatto partire il processo 
+
+		PID 	ID DEL PROCESSO id dell processo
+
+		PPID	ID PROCESSO MADRE id del processo madre 
+
+		CMD 	COMANDO, OPZIONE, ARGOMENTO (CMD) nomeComando , opzioni , argomenti 
+
+
+ELENCARE UNA LISTA DINAMICA DEI PROCESSI 
+	top 
+	
+		q 	chiude top
+		h 	mostra la lista dei tasti utilizzabili
+		k 	elimina un processo stramite il codice PID 
+		s 	cambia intervallo di tempo del refresc della lista 
+
 GESTIONE DEIPROCESSI 
+
 
 	CDICE RITORNO DI UN PROCESSO
 		$?	se é zero vuol dire che il processo precendente è stato 
 			eseguito correttamente altrimenti ritorna 1 se ci sono dei roblemi 
-	
 
-
-	ATRIBUTI DI UN PROCESSO 
-
-		PROPRIETARIO (UID)  id del utilizzatore che ha fatto partire il processo 
-
-		ID DEL PROCESSO (PID)	id dell processo
-
-		ID PROCESSO MADRE(PPID)	id del processo madre 
-
-		COMANDO, OPZIONE, ARGOMENTO (CMD)	noeComando , opzioni , argomenti 
-
-	VISUALIZZARE LISTA ATTRIBUTI PROCESSI
-		ps -f
-
-	
-SOSPENDERE L'ESECUZIONE DI UN PROCESSO 
-	
-	sleep 10 	sospende l'esecuzione di un processo per 10 secondi
-
-ESEGUIRE UN COMANDO IN BACKGROUND
-	comando argomenti &
-
-LISTARE I PROCESSI IN BACKGROUND 	
-	jobs		attiribuisce un numero ad ogni processo elencato 
-
-
-RIPORTARE UN COMANDO IN PRIMO PIANO 
-	fg %numeroProcesso
-
-
-STOPPARE UN COMANDO 
-	ctrl+z
-	
-
-REINVIARE UN COMANDO IN BACKGROUND
-	bg 		invia comando in esecuzione in Back Ground
-
+ARRESTARE UN PROCESSO LANCIATO IN CONSOLE
+	ctrl + c
 
 ELIMINARE UN PROCESSO
+
+	kill %numeroProcesso
+
 	
 	kill -l 	elenca la lista di tutti i possibili codici di processi che posso eliminare
 		1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP
@@ -66,6 +81,38 @@ ELIMINARE UN PROCESSO
 	kill -NUMERO IDprocesso
 
 	
+
+	
+
+
+	
+SOSPENDERE L'ESECUZIONE DI UN PROCESSO 
+	
+	sleep 10 	sospende l'esecuzione di un processo per 10 secondi
+
+ESEGUIRE UN COMANDO IN BACKGROUND
+	comando argomenti &
+
+LISTARE I PROCESSI IN BACKGROUND 	
+	jobs		attiribuisce un numero ad ogni processo elencato 
+
+
+RIPORTARE UN COMANDO IN PRIMO PIANO 
+	fg %numeroProcesso
+
+
+
+
+STOPPARE UN COMANDO inviandola in background
+	ctrl+z
+	
+
+REINVIARE UN COMANDO IN BACKGROUND
+	
+	bg 		invia comando in esecuzione in Back Ground
+
+
+
 
 
 
