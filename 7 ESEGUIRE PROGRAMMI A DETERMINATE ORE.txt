@@ -1,0 +1,177 @@
+date 		FORNISCE DATA E ORA ATTUALE
+
+
+date "+%H:%M:%S"	fornisce l'ora attuale 
+
+
+MODIFICARE LA DATA 	
+	sudo date MMDDhhmmYYYY
+
+		MM : mese;
+		DD : giorno;
+		hh : ora;
+		mm : minuti;
+		YYYY : anno;
+
+
+ESEGUIRE UN COMANDO PIU TARDI 
+
+	ESEGUIRE UN COMANDO AD UN ORA PRECISA (dello stesso giorno)
+		at 	14:17		ti permetterà di scrivere i comandi che si vogliono eseguire
+					una volta scritti tutti i comandi premere CTRL+D per uscire 
+
+	ESEGUIRE UN COMANDO IL GIORNO SUCCESSIVO
+		at 14:17 tomorrow	ti permetterà di scrivere i comandi che si vogliono eseguire
+					una volta scritti tutti i comandi premere CTRL+D per uscire 
+
+
+
+	ESEGUIRE UN COMANDO IN UNA DATA LONTANA 
+		at 14:17 11/27/22
+
+
+	ESEGUIRE UN COMANDO DOPO UN CERTO TEMPO
+		at now +5 minutes
+		at now +5 hours
+		at now +5 days
+		at now +5 weeks
+		at now +5 months
+		at now +5 years
+
+	
+LISTARE I COMANDI IN ATTESA
+
+	atq 	liusta i comandi attualmente in attesa di essere eseguiti 
+	
+
+ANNULLARE UN COMANDO IN LISTA 
+	atrm numeroComando	annulla il comando scelto
+
+
+
+ATTENDERE UN DETERMINATO TEMPO 
+	sleep numeroSecondi 	attendo per numeroSecondi
+
+	sleep 1m	attendo un minuto
+
+	sleep 2h 	attendo due ore
+
+	sleep 4d	attendo 4 giorni 
+
+
+
+ESSEGUIRE UN COMANDO REGOLARMENTE 
+	per poter utilizzare questo comando bisogna configurare il file .bashr  
+	per fare in modo che "nano" sia l'editor di default  
+
+	scrivere alla fine file 	export EDITOR=nano
+
+
+	crontab	-l 	 visualizza il file contenente la lista dei programmi che si vogliono eseguire in determinati momenti
+
+	crontab -e 	permette di modificare il file 
+
+	corntab -r	elimina (senza conferma) la lista dei programmi di crontab
+
+
+
+	COME COMPILARE IL FILE 
+		
+
+		X X X X X COMANDO
+		| | | | | 
+		| | | | V
+		| | | V giorno della settimana(0 -6) (0=domenica)
+		| | V mese (1 - 12)
+		| V giorni del mese (1 - 31)
+		V ore (0 - 23)
+		minuti (0 - 59)
+
+
+	es:	47 15 * * * touch /home/mateo21/file.txt	ogni volta che sono le 15h47 creo un file.txt
+
+		
+	NOTAZIONI A RIMPIAZZARE A X
+		
+		5(un nombre) 	eseguire solo se il campo a valore 5 ;
+
+		*  	qualsiasi valore va bene ;
+
+		3,5,10	eseguire il comando solo se il campo prende il valore 3 5 o 10 (NB!! NON METTERE SPAZI TRA I VALORI)
+
+		3-7 	eseguire per i valori che vanno da 3 a 7
+
+		*/3	eseguire per tutti i multipli di 3 (par exemple à 0 h, 3 h, 6 h, 9 h…).
+
+	SE C'è UN PROBLEMA NELL ESECUZIONE DEL COMANDO 
+		viene inviato un messaggio all'utente che ha ordinato tale comando (nel suo spazio mail utente di linux)
+
+		se voglio il risultato dell'esecuzione dei comandi altrove 
+		sarà sufficiente dare un percorso dove salvare l'usita e gli errori
+		
+		47 15 * * * touch /home/mateo21/fichier.txt >> /home/mateo21/cron.log
+
+		oppure
+
+		47 15 * * * touch /home/mateo21/fichier.txt >> /home/mateo21/cron.log 2>&1
+
+		in questo modo verrà tutto salvato nel file cono.log
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

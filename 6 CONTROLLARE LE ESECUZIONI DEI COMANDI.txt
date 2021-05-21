@@ -158,7 +158,38 @@ CTRL + b puis w Afficher la liste des terminaux.
 CTRL + b puis & Supprimer le terminal virtuel courant.
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+MOLTIPLICATORE DI TERMINALI 
 
+INSTALLAZIONE 	sudo apt-get install screen 
+
+screen 	moltiplicatore di terminali 
+	
+Ctrl + d per uscire
+
+Ctrl + a + c 		crea una nuova finestra
+
+Ctrl + a + w 		stampa la lista delle finestre 
+
+Ctrl + a + A		rinomina la finestra attuale
+
+Ctrl + a + n 		passa alla finestra successiva
+
+Ctrl + a + p 		passa alla finestra precedente 
+
+Ctrl + a + Ctrl + a 	ritorna all'ultima finestra utilizata 
+
+Ctrl + a + numero	vai alla finestra numero 
+
+Ctrl + a + "		scegli la finestra nella quale si vuole andare
+
+Ctrl + a + k		chiudio la finestra attuale
+
+Ctrl + a + S 		separare lo schermo in piu finestre 
+
+Ctrl + a + d 		permette di ritrovare la bash normale senza chiudere screen
+
+screen -r 		permette di ritrovare screen come l'ultima volta che l'abiamo usato 
 
 
 

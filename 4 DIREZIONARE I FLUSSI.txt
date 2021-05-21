@@ -60,7 +60,9 @@ Per default le uscite vengono direzionate verso la Console
 
 	comando1 | comando2 | comando3
 
-
+####################################################################################
+   ;	SCRIVERE COMANDI SULLA STESSA LINEA SENZA COLLEGARLI
+####################################################################################
 
 
 
