@@ -1,0 +1,122 @@
+VARIABILI D'AMBIENTE 
+	
+LISTARE LE VARIABILI DI AMBIENTE PRESENTI 
+	printenv 
+		oppure
+	env	
+
+LISTARE TUTTE LE VARIABILI PRESENTI 
+	set
+	
+	VARIABILI D'AMBIENTE UTILI 
+		HOME	contiene l'indirizzo del repertorio utente
+		PATH 	repertorio contenente i comandi utilizzabili
+		LOGNAME 	nome Utente che ha aperto la sessione 
+		SHELL	Tipo di shell usata all'apertura della sessione
+
+ELIMINARE UNA VARIABILE DI AMBIENTE
+	unset nomeVariabile
+
+MODIFICARE UNA VARIABILE DI AMBIENTE
+	nomeVariabileAmbiente=PercorsoValore
+	
+
+CREARE UN AVARIABILE CONTENENTE UN INDIRIZZO SPECIFICO
+	nomeVariabile=Percorso
+
+	ex:
+	    f=/home/alice/foto
+		facendo 
+	    cd $f	vado direttamente all'indirizzo scelto 
+
+
+FARE IN MODO CHE UNA VARIABILE LOCALE SIA ACCESSIBILE DA PIU SHELL DIVERSE
+	export nomeVariabile
+
+
+---------------------------------------------------------------------------------------
+
+FILES PER CREARE LE PROPRIE VARIABILI DI AMBIENTE 
+		
+	vi .bashrc	modifica il file .bashrc
+	
+	creo le variabili all'internodel file e poi FACCIO l'EXPORT
+
+	es:
+		D=$HOME/Documents/cv
+		export D
+
+
+VERIFICARE IL CONTENUTO DI UNA VARIABILE DI AMBIENTE
+	
+	PS1="scrivere il proprio invito di comando"
+
+		\u : login de l’utilisateur courant
+		\w : répertoire courant, avec $HOME abrégé par un tilde
+		\t : Heure courante au format 24-heures HH:MM:SS
+		\s : Le nom du shell, aussi retourné par la variable $0
+		\T : Heure courante au format in 12-heures HH:MM:SS
+		\@ : Heure courante au format in 12-heures AM/PM
+		\A : Heure courante au format in 24-heures HH:MM
+		\H : Nom de la machine
+		\W : Nom de base du répertoire courant, avec $HOME abrégé par un tilde
+		\! : Le numéro historique de la commande
+		\# : Le Numéro de la commande
+		\n : Passage à la ligne
+
+
+
+MODIFICARE OPZIONI DELLA SHELL
+	shopt		mostra le opzioni legate alla shell
+
+		cmdhist 	permette di salvare dei comandi multilinea nelo storico
+		extglob		???
+		login_shell 	???
+
+	ATTIVARE UN OPZIONE 
+		shopt -s nomeOpzione
+
+	DISATTIVARE UN OPZIONE
+		chopt -u nomeOpzione
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
