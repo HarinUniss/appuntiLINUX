@@ -45,15 +45,36 @@ grep "testo" nomeFile		cerca tutte le linee contenenti il testo e le stampa a sc
 		()			Gruppo di espressioni
 
 
-
 		ESEMPI
 		grep -E [Aa]lias .bashrc	mostra tutte le linee che contengono Alias con A maiuscola o minuscola
 
 		grep -E [0-4] .bashrc		mostra tutte le line contenenti un NUMERO DA 0 a 4
 
 		grep -E [a-zA-Z] .bashrc	mostra tutte le linee che hanno dei caratteri che vanno da "A" a "Z" oppure da "a" a "z"
+########################################################################################################
+cat 	stampa un file
+########################################################################################################
 
-		
+	cat nomeFile.txt
+
+########################################################################################################
+head	stampa le 10 prime righe di un file
+########################################################################################################
+
+	head nomeFile.txt
+
+	head -numeroLinee nomeFile.txt		per decidere quante linee visualizzare
+
+########################################################################################################
+tail	stampa le 10 ultime righe di un file
+########################################################################################################
+
+	tail nomeFile.txt
+
+
+	tail -numeroLinee nomeFile.txt		per decidere quante linee visualizzare
+
+
 
 
 ########################################################################################################
@@ -74,7 +95,15 @@ sort nomeFile 		ordina le righe in ordine alfabetico, i numeri hanno ancora piu 
 
 	-n 	ordina i numeri ma li mette per ultimi rispetto alle lettere 
 		inoltre leggerà tutta la riga del numero non solo il primo carattere
+	
+ORDINARE RISPETTO A UNA COLONNA DIVERSA DALLA PRIMA 
+	
+	-k 	 cat file.txt | sort -k 2	ordino rispetto alla seconda colonna
 
+	-t	se il separatore delle colonne non è uno spazio bisogna specificarlo con -t
+
+		es:
+		cat file.txt | sort -kn 3 -t ":"	ordine numerico crescente della 3 colonna con separatore :
 ########################################################################################################
 WC 	contare il numero di linee
 ########################################################################################################
@@ -105,6 +134,17 @@ uniq nomeFil
 	-d	stampa solo una volta le righe che sono DOPPIE  (NON triple)
 
 ########################################################################################################
+split	permette di separare un file in piu file
+########################################################################################################
+
+	split -numeroFile nomeFile
+
+	split -l numeroFile nomeFile	faccio dei file della stessa dimensione 
+
+
+
+
+########################################################################################################
 cut 	stampa una parte del file 
 ########################################################################################################
 
@@ -116,7 +156,13 @@ cut 	stampa una parte del file
 	
 DELIMITARE UN FILE 
 
+
      cut -d <simboloDelimitazione> -f 1 nomeFile
+
+	POSSO ANCHE METTERE IL DELIMITATORE TRA VIRGOLETTE ""
+
+      cut -d "<simboloDelimitazione>" -f 1 nomeFile
+	
 
 	ESEMPIO DI FILE
 	_________________________________________________
@@ -131,6 +177,7 @@ DELIMITARE UN FILE
 	-d 	indica che c'è un DEELIMITATORE nel file 
 	-f 	indica il numero blocco che si vuole stamppare
 
+	NB IN QUESTI ESEMPI HO SCELTO LA VIRGOLA COME DELIMITATORE
 		
 	cut -d , -f 1 nomeFile		stamperà i primi blocchi delle righe 	
 	
@@ -143,7 +190,13 @@ DELIMITARE UN FILE
 	cut -d , -f 2- nomeFile		stamperà DAL SECONDO BLOCCO IN POI PER OGNI RIGA 
 	
 	
+	
 	NB ricordare di non lasciare spazio tra le virgole del comando se si vogliono individuare piu blocchi
+
+
+STAMPARE IN SUCESSIONE PIU FILE 
+
+	cut file1.txt file2.txt
 
 
 	
@@ -157,6 +210,49 @@ less	stampare il file
 			/lettereCheCerco
 
 	q 	per uscire
+
+########################################################################################################
+paste		COLLAGE DI PARTI DI FILE 
+########################################################################################################
+	aggiunge alla prima riga del promo file la prima del secondo e cosi via per le altre righe 
+
+	paste file1.txt file2.txt
+
+	-d 	per specificare un delimitatore diverso dallo spazio
+
+
+
+########################################################################################################
+join 		COLLAGE DI PARTI DI FILE 
+########################################################################################################
+	funziona come paste con la differenza che posso andaare a specificare che linee e che colonne copiare
+
+	join 
+
+-----------------------------------------------------------------------------------------------
+########################################################################################################
+FILTRI POTENTI 
+########################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

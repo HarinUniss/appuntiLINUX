@@ -14,45 +14,110 @@ AGGIORNARE LA LISTA DI BASE DATI
 	sudo updatedb
 
 
-RICERCA PIU APROFONDITA SU TUTTO IL DISCO RIGIDO 
+#######################################################################################################
+find 		trovare files nel proprio fyle system
+#######################################################################################################
 
-		find <directoriPartenza> <nomeFile> <cosaFare>
-
-	FACCIO PARTIRE LA RICERCA DALLA DIRECTORY IN CUI MI TROVO 
-
-		find -name "nome.txt"
-
-	RICERCA IN UN ALTRA DIRECTORY
-
-		find /var/log/ -name "nome.txt"
-
-	RICERCA APARTIRE DALLA DIMENSIONE
-
-		find  -size +10M		(posso usare + - e M k G )
-				posso anche scrivere C per indicare il numero di caratteri
+	find <directoriPartenza> <nomeFile> <cosaFare>
 
 
-	RICERCA A PARTIRE DALLA DATA ULTIMO ACCESSO 
+	OPZIONI 
 
-		find -atime numeroGiorniPasatiDalUltimoAccesso
+		-name nomeFile		nome del file che devo cercare 
 
+		-perm numero		numero equivalente ai diritti di accesso del file che cerco 
 
-	RICERCA DI SOLI FILE O CARTELLE
+		-user nomeUser		utilizzatore che possiede il file 
 
-		find -type d 		per cercare solo cartelle
+		-size dimensioneFile	dimensione del file (posso usare + - e M k G )
+					posso anche scrivere C per indicare il numero di caratteri		
+					es: 10M 	cerca file di 10M
+					    -10k	cerca i file piu piccoli di 10k
 
-		find -type f		per cercare solo file
+		-exec comando		esegue il comando su ogniuno dei file trovati !!!!!!!!!!!!!!!!!	
 
+		-mtime numeroGiorni	numero giorni ultima modificazione
 
-	OPERAZIONI CHE SI POSSONO SVOLGERE 
+		-atime numeroGiorni 	numero giorni passati dall'ultimo accesso 
 
-		-print 		stampa a schermo il risultato 
+		-type d 		per cercare solo cartelle
+
+		-type f			per cercare solo file
+
+		-print 			stampa a schermo il risultato 
 
 		-printf "%p qualcosa %u"	usato come nel linguaggio C
+		
+		-delete			ELIMINA IL FILE TROVATO!!!!!!!
+			
 
-		-delete		ELIMINA IL FILE TROVATO!!!!!!!
 
-		-exec operazioneDaFareSuiFileTrovati \: c		in questo modo posso eseguire dei comandi su ogni singolo file che trovo
+	ESEGUIRE PIU OPZIONI CONTEMPORANEAMENTE "AND"
+		basta scrivre tutte le opzioni del comando che si vogliono una di fila all'altra
+
+	
+	RICCERCA CON LA OPZIONE "OR"
+
+		-o 	inserire il "-o" tra le opzioni le quali voglio una oppure l'altra 
+
+
+
+	ESSEGURE DEI COMANDI 
+
+	 find . -iname "*.jpg" -exec echo "-- {} ++" ; echo $?
+
+			eseguo il comando echo dentro al find , 
+				ogni file che verrà trovato 
+						avrà come prefisso i simboli -- 
+						poi verrà scritto il nome del file  al posto delle {}
+						e avrà come postfisso i simboli ++
+	
+				exec TERMINA con il simbolo ; 	(se voglio inibire l'interpretazione del simbolo ";" metto "\" davanti)
+
+
+	find . -name "*.txt" -exec wc -l {} ’;’ -exec cp {} {}.bak ’;’
+
+			trovo i file che hanno l'estensione .txt
+			poi eseguo il comando wc -l su i file trovati (rappresentati dal simbolo {} )
+			poi copio i file trovati in un file con lo stesso nome MA con l'estensione .bak
+
+	find . -name "*.txt" -exec cat {} ’;’ | wc -l
+			trova i file che hanno estensione .txt 
+			e conto il numero di linee totali di ogni file 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
