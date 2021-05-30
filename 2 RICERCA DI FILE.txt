@@ -24,7 +24,9 @@ find 		trovare files nel proprio fyle system
 	OPZIONI 
 
 		-name nomeFile		nome del file che devo cercare 
-
+		
+		-iname nomeFile		non tiene conto della case 
+	
 		-perm numero		numero equivalente ai diritti di accesso del file che cerco 
 
 		-user nomeUser		utilizzatore che possiede il file 
