@@ -1,0 +1,192 @@
+
+####################################################################################################
+expr	comando per fare i calcoli 
+####################################################################################################
+
+	expr argomento1 argomento2 ...		NB gli argomenti vanno tutti separati da uno SPAZIO 
+
+	es:
+		expr 1 + 2	
+
+	METTERE IL CALCOLO ALL'INTERNO DI UNA VARIABILE
+	
+		a=$(expr 1 + 2)
+
+	
+	UTILIZZARE UNA VARIABILE COME ARGOMENTO
+	
+		
+		expr $a + 2
+
+	
+	I CARATTERI SPECIALI VENGONO PASSATI COME TALI E NON INTERPRETATI SOLO SE GLI INIBISCO!!!!
+
+	FARE UNA MOLTIPLICAZIONE
+		expr $a \* 3		necessità di usare "\" per inibire il signigicato base del simbolo "*"
+		
+
+		\( expression \) parentesi
+		\* multiplication
+		/ division entière
+		% reste de la division entière
+		+ addition
+		- soustraction
+		
+
+	Opérateurs 		Libellés
+	( ) 			parenthésage
+	++ -- 			incrément, décrément
+	! 			négation logique
+	** 			puissance
+	* / % 			multiplication, division, reste
+	+ - 			addition, soustraction
+	<= >= < > == != 	comparaison
+	&& 			et logique
+	|| 			ou logique
+	= *= /= %= -= += 	affectation
+
+
+
+	
+	SOSTITUZIONE ARITMETICA
+		a=$((espressione))
+	
+		a=$((a*3))	da notare che in questo caso non servono spazi o $ per indicare le variabili 
+
+	a=2 b=3 
+	i=$(expr $a \* $b)
+
+	let "i=a*b"
+
+
+
+	OPERAZIONE DI INCREMENTO 
+		
+		let "espressione"
+
+		let "a=a+1"	incrementa la variabile a di 1
+
+		ALTRA MODALITA PER L'INCREMENTO 
+		
+		((espressione))	
+
+		((a=a+1))	incrementa la variabile a di 1
+
+		((a++))		incrementa la variabile a di 1
+
+
+	DICHIARAZIONE DI UNA VARIABILE COME UN ESPRESSIONE	
+
+		declare -i nomeVariabile=espressione
+
+			-i 	specifica variabile interi
+
+		dichiarando una variabile in questo modo posso usarla come se fosse un numero
+		in questo caso non ho bisogo delle funzioni "let" o "expr"
+			es: 	
+				declare -i b=10
+				b=(b+8)			b avrà come valore 18 
+
+			
+####################################################################################################
+bc	calcolatrice base
+####################################################################################################		
+
+	SETTARE ZERI DOPO LA VIRGOLA	scale=10 	
+	
+	
+	USCIRE DALLA CALCOLATRICE	quit
+
+	
+UTILIZZARE bc COME COMANDO NELLA SHELL
+
+	echo "settaggio1; settaggio2; "operazione" | bc
+
+
+USARE L'USCITA DELLA CALCOLATRICE PER METTERLO IN UNA VARIABILE 
+
+	c=$(echo "settaggio1; settaggio2; "operazione" | bc)
+
+
+
+		
+	
+			
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

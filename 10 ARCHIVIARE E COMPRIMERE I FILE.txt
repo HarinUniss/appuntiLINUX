@@ -1,0 +1,76 @@
+ARCHIVIO 
+	permette di trasformare un albero di file in uno solo 
+	
+
+COMPRESSIONE
+	permette di ridurre lo spazio occupato da un file su disco
+
+
+#############################################################################################	
+tar 	permette di creare un archivio 
+#############################################################################################	
+
+	CREAZIONE ARCHIVIO 
+	
+		tar cvf nomeArchivio.tar /percorsoFileCheSiVuoleArchiviare
+
+
+	c 	creazione
+	v 	
+	f	nomeArchivio.tar
+	z	crea direttamente un archivio compresso "nomeArchivio.tar.gz" "oppure nomeArchivio.tgz"
+
+
+	ESTRARRE ARCHIVIO 
+		spostare con "mv" il file nomeArchivio.tar dove lo voglio estrarre
+
+		tar xvf nomeArchivio.tar
+
+		x	estrazione
+		v	verbose
+		f	nomeArchivio
+		z	estrae un file compresso
+
+#############################################################################################
+gzip 	permette di comprimere i file 
+#############################################################################################
+
+	COMPRIMERE 
+	gzip nomeArchivio.tar		verra creato un file "nomeArchivio.tar.gz" e elimina il file originale "nomeArchivio.tar"
+
+	
+
+	DECOMPRIMERE
+	
+	gunzip nomeArchivio.tar.gz	crea il file "nomeArchivio.tar" e cancella il file compresso "nomeArchivio.tar.gz"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
