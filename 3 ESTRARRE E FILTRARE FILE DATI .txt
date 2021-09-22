@@ -19,6 +19,7 @@ grep "testo" nomeFile		cerca tutte le linee contenenti il testo e le stampa a sc
 		in questo caso al posto del nomeFile metterò l'indirizzo della directory
 
 		"grep -r"  si puo anche scrivere "rgrep"
+		in questo caso verranno anche elencati i nomi dei file che contengolo la parola cercata 
 
 
 	-E	UTILIZZARE GREEP CON DELLE ESPRESSIONI REGOLARI 	

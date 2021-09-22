@@ -52,6 +52,9 @@ find 		trovare files nel proprio fyle system
 		
 		-delete			ELIMINA IL FILE TROVATO!!!!!!!
 			
+		-empty 			cerca file e cartelle  vuoti 
+
+			
 
 
 	ESEGUIRE PIU OPZIONI CONTEMPORANEAMENTE "AND"
